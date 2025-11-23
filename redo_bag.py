@@ -2,6 +2,7 @@
 import yaml
 from pathlib import Path
 
+# Create a yaml file for each individual bags, so we don't need to download all db3 files
 def create_yaml_for_each_bag(original_metadata_path, subset_files, output_root):
     with open(original_metadata_path, "r") as f:
         original_meta = yaml.safe_load(f)
@@ -42,10 +43,10 @@ def create_yaml_for_each_bag(original_metadata_path, subset_files, output_root):
         print(f"Created {yaml_path}")
 
 if __name__ == "__main__":
-    original_metadata = "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/metadata_cam1.yaml"
+    original_metadata = "data/makalii_point/cam3/metadata.yaml"
     subset_files = [
-        "bag_camera_1_2025_08_10-05_00_34_0.db3"
+        "bag_camera_3_2025_08_13-01_35_58_40.db3"
     ]
-    output_root = "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/cam1_data/"
+    output_root = "data/makalii_point/cam3"
 
     create_yaml_for_each_bag(original_metadata, subset_files, output_root)
