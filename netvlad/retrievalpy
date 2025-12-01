@@ -1,0 +1,23 @@
+import numpy as np
+from sklearn.neighbors import NearestNeighbors
+
+def build_database(folder):
+    descs = []
+    paths = []
+    for f in sorted(os.listdir(folder)):
+        if f.endswith('.png') or f.endswith('.jpg'):
+            p = os.path.join(folder, f)
+            paths.append(p)
+            descs.append(extract_netvlad_descriptor(p))
+    return np.vstack(descs), paths
+
+db_descs, db_paths = build_database("dataset/database")
+qr_descs, qr_paths = build_database("dataset/query")
+
+# Nearest neighbor search
+nn = NearestNeighbors(n_neighbors=1, metric='cosine')
+nn.fit(db_descs)
+dists, idxs = nn.kneighbors(qr_descs)
+
+for q, i, d in zip(qr_paths, idxs.squeeze(), dists.squeeze()):
+    print(f"Query {q} → Match {db_paths[i]} (distance={d:.4f})")

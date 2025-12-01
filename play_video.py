@@ -11,7 +11,7 @@ import cv2
 # cam_num = 2 # 2 is left, 3 is right, 1 is front
 # bag_path = "bag_camera_2_2025_08_13-01_35_58_18.db3"
 cam_num = 2 # 2 is left, 3 is right, 1 is front
-bag_path = "bag_camera_2_2025_08_13-01_35_58_7.db3"
+bag_path = "data/makalii_point/cam2/bag_camera_2_2025_08_13-01_35_58_23/bag_camera_2_2025_08_13-01_35_58_23.db3"
 USE_RECT = False
 USE_COMP = True
 

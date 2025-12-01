@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from torchvision import transforms
 from sklearn.neighbors import NearestNeighbors
 
-from netvlad_model import get_netvlad_backbone
+from network import get_netvlad_backbone
 
 # -------------------------
 #  Load Model
@@ -36,7 +36,7 @@ def extract_netvlad_descriptor(img_path):
 # -------------------------
 #  Build Database (cam2)
 # -------------------------
-def build_database(folder, output_file="netvlad_db_cam2.npz"):
+def build_database(folder, output_file="results/netvlad_db_cam2.npz"):
     descs = []
     paths = []
 

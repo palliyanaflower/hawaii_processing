@@ -45,8 +45,101 @@ def create_yaml_for_each_bag(original_metadata_path, subset_files, output_root):
 if __name__ == "__main__":
     original_metadata = "data/makalii_point/cam3/metadata.yaml"
     subset_files = [
-        "bag_camera_3_2025_08_13-01_35_58_40.db3"
+        "bag_camera_3_2025_08_13-01_35_58_31.db3"
     ]
     output_root = "data/makalii_point/cam3"
 
     create_yaml_for_each_bag(original_metadata, subset_files, output_root)
+
+
+
+# #!/usr/bin/env python3
+# import yaml
+# import shutil
+# from pathlib import Path
+
+# # =========================
+# # Split metadata into per-bag yaml files
+# # =========================
+# def create_yaml_for_each_bag(original_metadata_path, subset_files, output_root):
+#     with open(original_metadata_path, "r") as f:
+#         original_meta = yaml.safe_load(f)
+
+#     files_info = original_meta['rosbag2_bagfile_information']['files']
+#     rel_paths = original_meta['rosbag2_bagfile_information']['relative_file_paths']
+#     topics_info = original_meta['rosbag2_bagfile_information']['topics_with_message_count']
+
+#     for bag_file in subset_files:
+#         file_entry = next((f for f in files_info if Path(f['path']).name == bag_file), None)
+#         if not file_entry:
+#             print(f"⚠ Warning: {bag_file} not found in original metadata.yaml")
+#             continue
+
+#         new_meta = {
+#             'rosbag2_bagfile_information': {
+#                 'version': original_meta['rosbag2_bagfile_information']['version'],
+#                 'storage_identifier': original_meta['rosbag2_bagfile_information']['storage_identifier'],
+#                 'duration': file_entry['duration'],
+#                 'starting_time': file_entry['starting_time'],
+#                 'message_count': file_entry['message_count'],
+#                 'topics_with_message_count': topics_info,
+#                 'compression_format': original_meta['rosbag2_bagfile_information'].get('compression_format', ''),
+#                 'compression_mode': original_meta['rosbag2_bagfile_information'].get('compression_mode', ''),
+#                 'relative_file_paths': [bag_file],
+#                 'files': [file_entry]
+#             }
+#         }
+
+#         # Output folder for this bag
+#         output_folder = Path(output_root) / bag_file.replace(".db3", "")
+#         output_folder.mkdir(parents=True, exist_ok=True)
+
+#         yaml_path = output_folder / "metadata.yaml"
+#         with open(yaml_path, "w") as f:
+#             yaml.dump(new_meta, f, sort_keys=False)
+
+#         print(f"📝 Created metadata → {yaml_path}")
+
+
+# # =========================
+# # NEW → Move db3 to new directory
+# # =========================
+# def move_db3_files(bag_files, source_dir, output_root):
+#     source_dir = Path(source_dir)
+#     output_root = Path(output_root)
+
+#     for bag_file in bag_files:
+#         src = source_dir / bag_file
+#         dest_dir = output_root / bag_file.replace(".db3", "")
+#         dest_dir.mkdir(parents=True, exist_ok=True)
+
+#         dest = dest_dir / bag_file
+
+#         if not src.exists():
+#             print(f"❌ File not found: {src}")
+#             continue
+
+#         print(f"📦 Moving {src} → {dest}")
+#         shutil.move(str(src), str(dest))
+
+#     print("\n🎉 All files moved!")
+
+
+# # =========================
+# # Run
+# # =========================
+# if __name__ == "__main__":
+#     original_metadata = "data/makalii_point/cam2/metadata.yaml"
+
+#     subset_files = [
+#         "bag_camera_2_2025_08_13-01_35_58_23.db3"
+#     ]
+
+#     output_root = "data/makalii_point/cam2"
+#     source_dir = "."   # folder where db3 files currently live
+
+#     # 1. Create metadata.yaml for each bag
+#     create_yaml_for_each_bag(original_metadata, subset_files, output_root)
+
+#     # 2. Move the .db3 files into structured dirs
+#     move_db3_files(subset_files, source_dir, output_root)

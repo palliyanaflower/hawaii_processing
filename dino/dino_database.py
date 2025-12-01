@@ -25,7 +25,7 @@ def extract_dinov2_descriptor(img_path, pooling="avg"):
 # -------------------------
 #  Build Database (cam2)
 # -------------------------
-def build_database(folder, output_file="dinov2_db_cam2.npz", pooling="avg"):
+def build_database(folder, output_file="results/dinov2_db_cam2.npz", pooling="avg"):
     descs = []
     paths = []
 

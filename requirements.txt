@@ -1,0 +1,40 @@
+# PyTorch + CUDA (adjust wheel if needed)
+torch>=2.1.0
+torchvision>=0.16.0
+torchaudio>=2.1.0
+
+# Core Python libraries
+numpy>=1.25
+Pillow>=10.0
+scipy>=1.11
+requests>=2.31
+opencv-python>=4.8
+# matplotlib>=3.8
+matplotlib==3.7.2
+
+
+# # MobileSAM-specific
+# timm==0.6.13  # required by MobileSAM
+
+timm==0.5.4
+
+# Optional: Jupyter support
+jupyterlab>=4.3
+notebook>=7.0
+ipywidgets>=8.1
+
+# Packages needed to satisfy evo
+argcomplete>=2.0
+colorama>=0.4
+
+# Packages needed to satisfy sphinx
+snowballstemmer>=2.2
+
+# Optional: pip upgrade
+pip>=23.2
+
+# Install or upgrade the ultralytics package from PyPI
+# ultralytics==8.0.151
+
+# Clip
+git+https://github.com/openai/CLIP.git
