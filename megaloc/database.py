@@ -35,39 +35,102 @@ def extract_megaloc_descriptor(img_path):
     return desc.astype(np.float32)
 
 
-# -------------------------
-#  Build Database
-# -------------------------
-def build_database(folder, output_file="results/megaloc_db_cam2.npz"):
+# # -------------------------
+# #  Build Database
+# # -------------------------
+# def build_database(folder, output_file="results/megaloc_db_cam2.npz"):
+#     descs = []
+#     paths = []
+
+#     img_files = sorted([f for f in os.listdir(folder) if f.lower().endswith((".png",".jpg",".jpeg"))])
+#     for idx, f in enumerate(img_files):
+#         path = os.path.join(folder, f)
+#         paths.append(path)
+
+#         desc = extract_megaloc_descriptor(path)
+#         descs.append(desc)
+
+#         if idx % 50 == 0:
+#             print(f"[MegaLoc] processed {idx}/{len(img_files)}")
+
+#     descs = np.vstack(descs).astype(np.float32)  # (N, 8448)
+#     paths = np.array(paths)
+
+#     output_file = Path(output_file)              # convert to Path if it's a string
+#     output_file.parent.mkdir(parents=True, exist_ok=True)
+
+#     print(f"\nSaving → {output_file}")    
+#     np.savez(output_file, descs=descs, paths=paths)
+#     print("Done.\n")
+
+#     return descs, paths
+
+
+
+
+
+def build_database(root_folder, output_file="results/megaloc_db_cam2.npz"):
     descs = []
     paths = []
 
-    img_files = sorted([f for f in os.listdir(folder) if f.lower().endswith((".png",".jpg",".jpeg"))])
-    for idx, f in enumerate(img_files):
-        path = os.path.join(folder, f)
-        paths.append(path)
+    root = Path(root_folder)
 
-        desc = extract_megaloc_descriptor(path)
-        descs.append(desc)
+    # -------------------------
+    #  Iterate over each bag folder
+    # -------------------------
+    bag_folders = sorted([p for p in root.iterdir() if p.is_dir()])
 
-        if idx % 50 == 0:
-            print(f"[MegaLoc] processed {idx}/{len(img_files)}")
+    total_images = 0
+    for bag in bag_folders:
+        cam_dir = bag / "camera"
+        if not cam_dir.exists():
+            continue
 
-    descs = np.vstack(descs).astype(np.float32)  # (N, 8448)
+        img_files = sorted([
+            f for f in cam_dir.glob("*")
+            if f.suffix.lower() in (".png", ".jpg", ".jpeg")
+        ])
+
+        print(f"[Bag] {bag.name} — {len(img_files)} images")
+        total_images += len(img_files)
+
+        # -------------------------
+        # extract descriptors
+        # -------------------------
+        for idx, img_path in enumerate(img_files):
+            desc = extract_megaloc_descriptor(img_path)
+
+            descs.append(desc)
+            paths.append(str(img_path))
+
+            if idx % 50 == 0:
+                print(f"  processed {idx}/{len(img_files)} in {bag.name}")
+
+    # -------------------------
+    #  Convert to arrays
+    # -------------------------
+    descs = np.vstack(descs).astype(np.float32)
     paths = np.array(paths)
 
-    output_file = Path(output_file)              # convert to Path if it's a string
+    # ensure directory exists
+    output_file = Path(output_file)
     output_file.parent.mkdir(parents=True, exist_ok=True)
 
-    print(f"\nSaving → {output_file}")    
+    print(f"\nSaving → {output_file}")
     np.savez(output_file, descs=descs, paths=paths)
-    print("Done.\n")
 
+    print(f"\nDone. Total images processed: {total_images}")
     return descs, paths
 
+# # -------------------------
+# #  Run it
+# # -------------------------
+# db_descs, db_paths = build_database("../data/makalii_point/processed_data_imggps/cam2/camera")
+# print(f"Database built with {len(db_paths)} images — descriptor dim = {db_descs.shape[1]}")
 
-# -------------------------
-#  Run it
-# -------------------------
-db_descs, db_paths = build_database("../data/makalii_point/processed_data_imggps/cam2/camera")
+
+db_descs, db_paths = build_database(
+    "../data/makalii_point/processed_data_imggps/cam2"
+)
+
 print(f"Database built with {len(db_paths)} images — descriptor dim = {db_descs.shape[1]}")

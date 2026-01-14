@@ -1,0 +1,148 @@
+rosbag2_bagfile_information:
+  version: 5
+  storage_identifier: sqlite3
+  duration:
+    nanoseconds: 519282226456
+  starting_time:
+    nanoseconds_since_epoch: 1754950276808362381
+  message_count: 779685
+  topics_with_message_count:
+    - topic_metadata:
+        name: /ouster/telemetry
+        type: ouster_sensor_msgs/msg/Telemetry
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 1\n  depth: 1\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 325195
+    - topic_metadata:
+        name: /ouster/scan
+        type: sensor_msgs/msg/LaserScan
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 1\n  depth: 1\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 5043
+    - topic_metadata:
+        name: /ouster/points
+        type: sensor_msgs/msg/PointCloud2
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 1\n  depth: 1\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 4956
+    - topic_metadata:
+        name: /ouster/reflec_image
+        type: sensor_msgs/msg/Image
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 1\n  depth: 1\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 4876
+    - topic_metadata:
+        name: /ouster/nearir_image
+        type: sensor_msgs/msg/Image
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 1\n  depth: 1\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 4955
+    - topic_metadata:
+        name: /ouster/metadata
+        type: std_msgs/msg/String
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 1\n  depth: 1\n  reliability: 1\n  durability: 1\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 1
+    - topic_metadata:
+        name: /ouster/signal_image
+        type: sensor_msgs/msg/Image
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 1\n  depth: 1\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 4916
+    - topic_metadata:
+        name: /ouster/range_image
+        type: sensor_msgs/msg/Image
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 1\n  depth: 1\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 4859
+    - topic_metadata:
+        name: /ouster/lidar_packets
+        type: ouster_sensor_msgs/msg/PacketMsg
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 1\n  depth: 1\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 322937
+    - topic_metadata:
+        name: /ouster/imu
+        type: sensor_msgs/msg/Imu
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 1\n  depth: 1\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 51040
+    - topic_metadata:
+        name: /ouster/imu_packets
+        type: ouster_sensor_msgs/msg/PacketMsg
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 1\n  depth: 1\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 50907
+    - topic_metadata:
+        name: /ouster/os_driver/transition_event
+        type: lifecycle_msgs/msg/TransitionEvent
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 1\n  depth: 10\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 0
+  compression_format: ""
+  compression_mode: ""
+  relative_file_paths:
+    - bag_lidar_2025_08_11-22_11_16_0.db3
+    - bag_lidar_2025_08_11-22_11_16_1.db3
+    - bag_lidar_2025_08_11-22_11_16_2.db3
+    - bag_lidar_2025_08_11-22_11_16_3.db3
+    - bag_lidar_2025_08_11-22_11_16_4.db3
+    - bag_lidar_2025_08_11-22_11_16_5.db3
+    - bag_lidar_2025_08_11-22_11_16_6.db3
+    - bag_lidar_2025_08_11-22_11_16_7.db3
+    - bag_lidar_2025_08_11-22_11_16_8.db3
+  files:
+    - path: bag_lidar_2025_08_11-22_11_16_0.db3
+      starting_time:
+        nanoseconds_since_epoch: 1754950276808362381
+      duration:
+        nanoseconds: 59999834859
+      message_count: 88921
+    - path: bag_lidar_2025_08_11-22_11_16_1.db3
+      starting_time:
+        nanoseconds_since_epoch: 1754950336809261372
+      duration:
+        nanoseconds: 59999511764
+      message_count: 90326
+    - path: bag_lidar_2025_08_11-22_11_16_2.db3
+      starting_time:
+        nanoseconds_since_epoch: 1754950396809453093
+      duration:
+        nanoseconds: 59998724759
+      message_count: 90270
+    - path: bag_lidar_2025_08_11-22_11_16_3.db3
+      starting_time:
+        nanoseconds_since_epoch: 1754950456809729878
+      duration:
+        nanoseconds: 59997101203
+      message_count: 90150
+    - path: bag_lidar_2025_08_11-22_11_16_4.db3
+      starting_time:
+        nanoseconds_since_epoch: 1754950516812345668
+      duration:
+        nanoseconds: 59999337240
+      message_count: 90217
+    - path: bag_lidar_2025_08_11-22_11_16_5.db3
+      starting_time:
+        nanoseconds_since_epoch: 1754950576812710020
+      duration:
+        nanoseconds: 59998766176
+      message_count: 90289
+    - path: bag_lidar_2025_08_11-22_11_16_6.db3
+      starting_time:
+        nanoseconds_since_epoch: 1754950636813410340
+      duration:
+        nanoseconds: 59998822235
+      message_count: 90546
+    - path: bag_lidar_2025_08_11-22_11_16_7.db3
+      starting_time:
+        nanoseconds_since_epoch: 1754950696814346115
+      duration:
+        nanoseconds: 59999740296
+      message_count: 89940
+    - path: bag_lidar_2025_08_11-22_11_16_8.db3
+      starting_time:
+        nanoseconds_since_epoch: 1754950756814499740
+      duration:
+        nanoseconds: 39276089097
+      message_count: 59026

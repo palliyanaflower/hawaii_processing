@@ -180,7 +180,7 @@ def latlon2pixels_segmented(gps_arrays_dir, map_image_path, ref_latlon, ref_pixe
     plt.show()
 
 # --- User settings ---
-base = "makalii_point"
+base = "data/makalii_point"
 gps_arrays_dir = Path(base + "/gps_arrays")
 map_image_path = base + "/satellite.png"
 save_fig = True  # set False to skip saving figure

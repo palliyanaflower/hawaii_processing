@@ -57,8 +57,9 @@ def numeric_sort_key(path):
     nums = re.findall(r'\d+', fname)
     return int(nums[0]) if nums else 0
 
-query_folder = "../data/makalii_point/processed_data_imggps/cam3/camera"  # ← CHANGE as correct
-query_idx = 10
+query_idx = 0
+bag_num = 55
+query_folder = f"../data/makalii_point/processed_data_imggps/cam3/bag_camera_3_2025_08_13-01_35_58_{bag_num}/camera"  # ← CHANGE as correct
 
 query_path = sorted(
     [os.path.join(query_folder, f)
@@ -98,7 +99,7 @@ plt.figure(figsize=(15,5))
 
 plt.subplot(1,4,1)
 plt.imshow(query_img)
-plt.title(f"Query {query_idx}")
+plt.title(f"Bag {bag_num}, Img {query_idx}")
 plt.axis("off")
 
 for j in range(3):

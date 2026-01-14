@@ -4,3 +4,5 @@ netvlad/vgg16_netvlad_checkpoint
 netvlad/netvlad_vgg16_pitts30k.mat
 netvlad/results
 dino/results
+*.db3
+neighborhood

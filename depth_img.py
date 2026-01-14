@@ -6,9 +6,10 @@ import cv2
 import numpy as np
 
 # Path to your rosbag
-cam_num = 3  # 2 is left, 3 is right, 1 is front
-bag_path = "data/makalii_point/cam3/bag_camera_3_2025_08_13-01_35_58_40/bag_camera_3_2025_08_13-01_35_58_40.db3"
-
+cam_num = 2  # 2 is left, 3 is right, 1 is front
+bag_num = 55
+# bag_path = f"data/makalii_point/cam{cam_num}/bag_camera_{cam_num}_2025_08_13-01_35_58_{bag_num}/bag_camera_{cam_num}_2025_08_13-01_35_58_{bag_num}.db3"
+bag_path = "/home/kalliyanlay/Documents/BYU/research/camera_lidar_calibration/data/airbnb_outside/bag_camera_2_2025_08_08-20_59_48_0.db3"
 # Topics
 depth_topic = f"/oak_d_lr_{cam_num}/stereo/image_raw"
 rgb_topic = f"/oak_d_lr_{cam_num}/rgb/image_raw"

@@ -82,10 +82,18 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 sam_checkpoint = "./weights/mobile_sam.pt"
 mobile_sam = sam_model_registry["vit_t"](checkpoint=sam_checkpoint).to(device).eval()
 
-mask_generator = SamAutomaticMaskGenerator(mobile_sam)
+mask_generator = SamAutomaticMaskGenerator(
+    model=mobile_sam,
+    points_per_side=4,
+    pred_iou_thresh=0.9,
+    stability_score_thresh=0.95,
+    crop_n_layers=0,
+    min_mask_region_area=5000,
+    box_nms_thresh=0.3,
+)
 
 # Load image
-image = np.array(Image.open("data/haleiwa_neighborhood/processed_data/camera/0.png"))
+image = np.array(Image.open("data/makalii_point/processed_data_imggps/cam2/bag_camera_2_2025_08_13-01_35_58_15/camera/0.png"))
 H, W = image.shape[:2]
 
 
@@ -117,6 +125,28 @@ def crop_masked_region(image, mask):
 # ----------------------------
 # Filter masks by CLIP semantics
 # ----------------------------
+# for m in masks:
+#     mask = m["segmentation"]
+    
+#     crop = crop_masked_region(image, mask)
+#     if crop is None:
+#         continue
+    
+#     # Run CLIP classification
+#     inputs = clip_processor(text=semantic_labels, images=crop, return_tensors="pt", padding=True).to(device)
+#     outputs = clip_model(**inputs)
+    
+#     probs = outputs.logits_per_image.softmax(dim=1)[0]
+#     predicted_label = semantic_labels[probs.argmax().item()]
+    
+#     # only keep masks NOT labeled sky or water
+#     if predicted_label not in ["sky", "water"]:
+#         filtered_masks.append(m)
+
+# print(f"Original masks: {len(masks)}")
+# print(f"Filtered masks (excluding sky/water): {len(filtered_masks)}")
+
+sky_water_masks = []
 for m in masks:
     mask = m["segmentation"]
     
@@ -130,27 +160,66 @@ for m in masks:
     
     probs = outputs.logits_per_image.softmax(dim=1)[0]
     predicted_label = semantic_labels[probs.argmax().item()]
-    
-    # only keep masks NOT labeled sky or water
-    if predicted_label not in ["sky", "water"]:
-        filtered_masks.append(m)
+    if predicted_label in ["sky", "water"]:
+        sky_water_masks.append(m["segmentation"])
 
+H, W = image.shape[:2]
+sky_water_union = np.zeros((H, W), dtype=bool)
 
-print(f"Original masks: {len(masks)}")
-print(f"Filtered masks (excluding sky/water): {len(filtered_masks)}")
+for seg in sky_water_masks:
+    sky_water_union |= seg
+valid_region = ~sky_water_union
+
 
 
 # ----------------------------
 # Visualization
 # ----------------------------
-img_vis = image.astype(np.float32) / 255.0
+img_vis_unfiltered = image.astype(np.float32) / 255.0
+img_vis_filtered   = image.astype(np.float32) / 255.0
+img_vis_inverted =   image.astype(np.float32) / 255.0
 
-plt.figure(figsize=(12, 12))
+plt.figure(figsize=(12, 6))
 
-for m in filtered_masks:
+# --- Unfiltered masks ---
+plt.subplot(1, 2, 1)
+for m in masks:
     mask = m["segmentation"]
     color = np.random.rand(3)
-    img_vis[mask] = img_vis[mask] * 0.5 + color * 0.5
-plt.imshow(img_vis)
+    img_vis_unfiltered[mask] = (
+        img_vis_unfiltered[mask] * 0.5 + color * 0.5
+    )
+
+plt.imshow(img_vis_unfiltered)
+plt.title("Unfiltered Masks")
 plt.axis("off")
+
+# # --- Filtered masks ---
+# plt.subplot(1, 2, 2)
+# for m in filtered_masks:
+#     mask = m["segmentation"]
+#     color = np.random.rand(3)
+#     img_vis_filtered[mask] = (
+#         img_vis_filtered[mask] * 0.5 + color * 0.5
+#     )
+
+# plt.imshow(img_vis_filtered)
+# plt.title("Filtered Masks")
+# plt.axis("off")
+
+# --- Filtered masks ---
+plt.subplot(1, 2, 2)
+mask = valid_region
+color = np.random.rand(3)
+color = np.array([252, 53, 3]) / 252.0
+img_vis_inverted[mask] = (
+    img_vis_inverted[mask] * 0.5 + color * 0.5
+)
+
+plt.imshow(img_vis_inverted)
+plt.title("Not Sky or Water Mask")
+plt.axis("off")
+
+plt.tight_layout()
 plt.show()
+
