@@ -45,7 +45,16 @@ def create_yaml_for_each_bag(original_metadata_path, subset_files, output_root):
 if __name__ == "__main__":
     original_metadata = "data/makalii_point/lidar/metadata.yaml"
     subset_files = [
-        "bag_lidar_2025_08_13-01_35_58_48.db3"
+        "bag_lidar_2025_08_13-01_35_58_6.db3",
+        "bag_lidar_2025_08_13-01_35_58_7.db3",
+        "bag_lidar_2025_08_13-01_35_58_8.db3",
+        "bag_lidar_2025_08_13-01_35_58_9.db3",
+        "bag_lidar_2025_08_13-01_35_58_10.db3",
+        "bag_lidar_2025_08_13-01_35_58_50.db3",
+        "bag_lidar_2025_08_13-01_35_58_51.db3",
+        "bag_lidar_2025_08_13-01_35_58_52.db3",
+        "bag_lidar_2025_08_13-01_35_58_53.db3",
+        "bag_lidar_2025_08_13-01_35_58_54.db3"
     ]
     output_root = "data/makalii_point/lidar"
 

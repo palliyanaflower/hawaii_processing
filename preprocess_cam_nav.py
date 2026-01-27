@@ -248,7 +248,7 @@ def export_images_and_gps(camera_bag, gps_data, output_dir,
 
 
 ###############################################
-#      🔥 NEW SECTION – process ALL cam3 bags
+#      process ALL cam bags
 ###############################################
 
 cam_num = 2

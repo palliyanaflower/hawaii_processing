@@ -33,7 +33,7 @@ def create_grid(x_range=10, y_range=10, step=1.0):
 
 
 # --- Load PCD file ---
-pcd_path = Path("data/cb/processed_data/lidar/pcd/99.pcd")  # <-- change this path
+pcd_path = Path("data/cb/processed_data/lidar/pcd/0000.pcd")  # <-- change this path
 # pcd_path = Path("/home/kalliyanlay/Documents/BYU/research/camera_lidar_calibration/data/multicam_lidar_calib_data/lidar/pcd/0003.pcd")  # <-- change this path
 
 if not pcd_path.exists():

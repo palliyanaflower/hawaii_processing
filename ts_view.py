@@ -7,28 +7,29 @@ from pathlib import Path
 
 
 # --- CONFIG ---
-camera_bag = Path("data/haleiwa_neighborhood/cam1/bag_camera_1_2025_08_11-22_11_16_0")
-lidar_bag  = Path("data/haleiwa_neighborhood/lidar/bag_lidar_2025_08_11-22_11_16_0")
-nav_bag    = Path("data/haleiwa_neighborhood/nav/bag_navigation_sensors_2025_08_11-22_11_16")
+camera_bag = Path("data/makalii_point/cam2/bag_camera_2_2025_08_13-01_35_58_12")
+lidar_bag  = Path("data/makalii_point/lidar/bag_lidar_2025_08_13-01_35_58_12")
+nav_bag    = Path("data/makalii_point/nav/bag_navigation_sensors_2025_08_13-01_35_58")
 
 duration_limit_s = 10.0  # plot first X seconds
 
 bags_and_topics = {
     camera_bag: [
-        "/oak_d_lr_1/rgb/image_rect",
-        "/oak_d_lr_1/stereo/image_raw",
-        "/oak_d_lr_1/right/image_raw",
+        # "/oak_d_lr_2/rgb/image_rect",
+        # "/oak_d_lr_2/stereo/image_raw",
+        "/oak_d_lr_2/right/image_raw",
+        "/oak_d_lr_2/left/image_raw"
     ],
     lidar_bag: [
         "/ouster/points",
-        "/ouster/range_image",
-        "/ouster/xyz_image",
+        # "/ouster/range_image",
+        # "/ouster/xyz_image",
     ],
     nav_bag: [
         "/imu/nav_sat_fix",
-        "/sbg/ekf_nav",
-        "/sbg/imu_data",
-        "/sbg/ekf_quat",
+        # "/sbg/ekf_nav",
+        # "/sbg/imu_data",
+        # "/sbg/ekf_quat",
     ],
 }
 
