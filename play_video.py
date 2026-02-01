@@ -10,9 +10,9 @@ import cv2
 # bag_path = "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/bag_camera_" + str(cam_num) +"_2025_08_14-00_56_40_30.db3"
 # cam_num = 2 # 2 is left, 3 is right, 1 is front
 # bag_path = "bag_camera_2_2025_08_13-01_35_58_18.db3"
-cam_num = 2 # 2 is left, 3 is right, 1 is front
+cam_num = "left" # 2 is left, 3 is right, 1 is front
 # bag_path = "/home/kalliyanlay/Documents/BYU/research/camera_lidar_calibration/data/hawaii_calib/cam3/bag_camera_3_2025_08_08-20_59_48_0/bag_camera_3_2025_08_08-20_59_48_0.db3"
-bag_path = "/home/kalliyanlay/Documents/BYU/research/camera_lidar_calibration/data/hawaii_calib/cam2/bag_camera_2_2025_08_11-22_11_16_5"
+bag_path = "/home/kalliyanlay/Documents/BYU/research/camera_lidar_calibration/data/cb_4thfloor_calib_10_13_25_new"
 
 # "rect" "comp" ""
 USE_RECT = True
@@ -23,7 +23,8 @@ fps = 30
 save_path = "data/makalii_point/temp_processed/cam" + str(cam_num) + "/"
 im_num = 0
 if USE_RECT:
-    topic_to_play = "/oak_d_lr_" + str(cam_num) +"/right/image_raw" # or /oak_d_lr_2/rgb/image_raw
+    # topic_to_play = "/oak_d_lr_" + str(cam_num) +"/right/image_raw" # or /oak_d_lr_2/rgb/image_raw
+    topic_to_play = "/oak_d_lr_forward/rgb/image_raw"
     print("topic:", topic_to_play)
 
     # Setup bag reader

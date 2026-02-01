@@ -36,7 +36,7 @@ def create_grid(x_range=10, y_range=10, step=1.0):
     return grid
 
 
-bag_path = Path("data/haleiwa_neighborhood/lidar/bag_lidar_2025_08_11-22_11_16_0")
+bag_path = Path("bag_lidar_2025_08_13-01_35_58_40.db3")
 pcd = o3d.geometry.PointCloud()
 
 storage_options = StorageOptions(uri=str(bag_path), storage_id="sqlite3")

@@ -8,12 +8,12 @@ import matplotlib.pyplot as plt
 # ------------------------------------------------------------
 left_img_path = (
     "data/makalii_point/processed_lidar_cam_gps/cam2/"
-    "bag_camera_2_2025_08_13-01_35_58_5/camera/left_cam/1.png"
+    "bag_camera_2_2025_08_13-01_35_58_5/camera/left_cam/2.png"
 )
 
 right_img_path = (
     "data/makalii_point/processed_lidar_cam_gps/cam2/"
-    "bag_camera_2_2025_08_13-01_35_58_5/camera/right_cam/1.png"
+    "bag_camera_2_2025_08_13-01_35_58_5/camera/right_cam/2.png"
 )
 
 calib_path = "data/calib_leftcam.json"
@@ -48,6 +48,7 @@ if left_img is None or right_img is None:
 left_gray = cv2.cvtColor(left_img, cv2.COLOR_BGR2GRAY)
 right_gray = cv2.cvtColor(right_img, cv2.COLOR_BGR2GRAY)
 
+# Rectify 
 # ------------------------------------------------------------
 # StereoSGBM configuration
 # ------------------------------------------------------------
@@ -56,15 +57,15 @@ block_size = 5
 
 stereo = cv2.StereoSGBM_create(
     minDisparity=0,
-    numDisparities=num_disparities,
-    blockSize=block_size,
-    P1=8 * block_size ** 2,
-    P2=32 * block_size ** 2,
+    numDisparities=64,
+    blockSize=7,
+    P1=24 * 7 * 7,
+    P2=96 * 7 * 7,
     disp12MaxDiff=1,
-    uniquenessRatio=10,
-    speckleWindowSize=100,
-    speckleRange=32,
-    preFilterCap=63,
+    uniquenessRatio=15,
+    speckleWindowSize=50,
+    speckleRange=2,
+    preFilterCap=31,
     mode=cv2.STEREO_SGBM_MODE_SGBM_3WAY,
 )
 

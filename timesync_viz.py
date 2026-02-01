@@ -6,7 +6,7 @@ import numpy as np
 # --- Paths ---
 # base_dir = Path("data/haleiwa_neighborhood/processed_lidar_cam_gps/cam1/bag_camera_1_2025_08_11-22_11_16_0")
 # base_dir = Path("data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_48")
-base_dir = Path("data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_5")
+base_dir = Path("data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_12")
 timestamps_file = base_dir / "metadata/timestamps.json"
 
 # --- Load timestamps.json ---
@@ -15,7 +15,7 @@ with open(timestamps_file, "r") as f:
 
 # --- Prepare folder names and y positions ---
 # folders = ["camera/left_cam", "camera/right_cam", "lidar/img", "lidar/range", "lidar/xyz", "lidar/pcd", "nav/gps"]
-folders = [ "camera/right_cam", "camera/left_cam", "lidar/pcd", "nav/gps"]
+folders = ["camera/rgb", "camera/right_cam", "camera/left_cam", "lidar/pcd", "nav/gps"]
 y_positions = {name: i + 1 for i, name in enumerate(folders)}
 
 # --- Extract times (convert ns -> s, relative to first LiDAR points timestamp) ---

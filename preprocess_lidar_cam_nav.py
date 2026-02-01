@@ -155,7 +155,7 @@ def process_bag_timesync_reference(
             if conn.topic != "/ouster/points":
                 continue
 
-            if lidar_ds_i % 50 != 0:
+            if lidar_ds_i % 10 != 0:
                 lidar_ds_i += 1
                 continue
 
@@ -304,82 +304,90 @@ def process_bag_timesync_reference(
 
 ###############################################
 #      process ONE cam bag
-################################################ process_bag_timesync_reference(
-#     camera_bag="data/haleiwa_neighborhood/cam1/bag_camera_1_2025_08_11-22_11_16_0",
-#     lidar_bag="data/haleiwa_neighborhood/lidar/bag_lidar_2025_08_11-22_11_16_0",
-#     nav_bag="data/haleiwa_neighborhood/nav/bag_navigation_sensors_2025_08_11-22_11_16",
-#     output_dir="data/haleiwa_neighborhood/processed_lidar_cam_gps/cam2",
-#     max_time_diff_ms=100.0
+################################################ 
+# process_bag_timesync_reference(
+#     cam_num=2,
+#     camera_bag="data/makalii_point/cam2/bag_camera_2_2025_08_13-01_35_58_11",
+#     lidar_bag="data/makalii_point/lidar/bag_lidar_2025_08_13-01_35_58_11",
+#     nav_bag="data/makalii_point/nav/bag_navigation_sensors_2025_08_13-01_35_58",
+#     output_dir="data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_11",
 # )
 
-
-###############################################
-#      process ALL cam bags
-###############################################
-
-from pathlib import Path
-import re
-
-cam_num = 3
-data_root = Path("data/makalii_point")
-
-cam_dir = data_root / f"cam{cam_num}"
-lidar_dir = data_root / "lidar"
-nav_dir = data_root / "nav"
-
-def index_bags(bag_dir, pattern):
-    """
-    Returns {idx: Path} for bags matching pattern with trailing _<idx>
-    """
-    bags = {}
-    for p in bag_dir.iterdir():
-        if not p.is_dir():
-            continue
-        m = re.match(pattern, p.name)
-        if m:
-            idx = int(m.group(1))
-            bags[idx] = p
-    return bags
-
-camera_bags = index_bags(
-    cam_dir,
-    rf"bag_camera_{cam_num}_.+_(\d+)$"
+process_bag_timesync_reference(
+    cam_num=3,
+    camera_bag="data/makalii_point/cam3/bag_camera_3_2025_08_13-01_35_58_40",
+    lidar_bag="data/makalii_point/lidar/bag_lidar_2025_08_13-01_35_58_40",
+    nav_bag="data/makalii_point/nav/bag_navigation_sensors_2025_08_13-01_35_58",
+    output_dir="data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_40",
 )
 
-lidar_bags = index_bags(
-    lidar_dir,
-    r"bag_lidar_.+_(\d+)$"
-)
+# ###############################################
+# #      process ALL cam bags
+# ###############################################
 
-nav_bag = Path("data/makalii_point/nav/bag_navigation_sensors_2025_08_13-01_35_58")
+# from pathlib import Path
+# import re
 
-common_indices = sorted(
-    set(camera_bags) & set(lidar_bags)# & set(nav_bags)
-)
+# cam_num = 3
+# data_root = Path("data/makalii_point")
 
-print(f"Found {len(common_indices)} synchronized bag sets:", common_indices)
+# cam_dir = data_root / f"cam{cam_num}"
+# lidar_dir = data_root / "lidar"
+# nav_dir = data_root / "nav"
 
-for idx in common_indices:
-    camera_bag = camera_bags[idx]
-    lidar_bag = lidar_bags[idx]
-    # nav_bag = nav_bags[idx]
+# def index_bags(bag_dir, pattern):
+#     """
+#     Returns {idx: Path} for bags matching pattern with trailing _<idx>
+#     """
+#     bags = {}
+#     for p in bag_dir.iterdir():
+#         if not p.is_dir():
+#             continue
+#         m = re.match(pattern, p.name)
+#         if m:
+#             idx = int(m.group(1))
+#             bags[idx] = p
+#     return bags
 
-    output_dir = (
-        data_root
-        / "processed_lidar_cam_gps"
-        / f"cam{cam_num}"
-        / camera_bag.stem
-    )
+# camera_bags = index_bags(
+#     cam_dir,
+#     rf"bag_camera_{cam_num}_.+_(\d+)$"
+# )
 
-    print(f"\nProcessing bag {idx}")
-    print(f"  Camera: {camera_bag.name}")
-    print(f"  LiDAR : {lidar_bag.name}")
-    print(f"  Nav   : {nav_bag.name}")
+# lidar_bags = index_bags(
+#     lidar_dir,
+#     r"bag_lidar_.+_(\d+)$"
+# )
 
-    process_bag_timesync_reference(
-        cam_num=cam_num,
-        camera_bag=camera_bag,
-        lidar_bag=lidar_bag,
-        nav_bag=nav_bag,
-        output_dir=output_dir,
-    )
+# nav_bag = Path("data/makalii_point/nav/bag_navigation_sensors_2025_08_13-01_35_58")
+
+# common_indices = sorted(
+#     set(camera_bags) & set(lidar_bags)# & set(nav_bags)
+# )
+
+# print(f"Found {len(common_indices)} synchronized bag sets:", common_indices)
+
+# for idx in common_indices:
+#     camera_bag = camera_bags[idx]
+#     lidar_bag = lidar_bags[idx]
+#     # nav_bag = nav_bags[idx]
+
+#     output_dir = (
+#         data_root
+#         / "processed_lidar_cam_gps"
+#         / f"cam{cam_num}"
+#         / camera_bag.stem
+#     )
+
+#     print(f"\nProcessing bag {idx}")
+#     print(f"  Camera: {camera_bag.name}")
+#     print(f"  LiDAR : {lidar_bag.name}")
+#     print(f"  Nav   : {nav_bag.name}")
+
+#     process_bag_timesync_reference(
+#         cam_num=cam_num,
+#         camera_bag=camera_bag,
+#         lidar_bag=lidar_bag,
+#         nav_bag=nav_bag,
+#         output_dir=output_dir,
+#     )
