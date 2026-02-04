@@ -19,9 +19,9 @@ class CameraView:
     K_proj: np.ndarray = None
     u: np.ndarray = None
     v: np.ndarray = None
-    pts_all: np.ndarray = None
-    pts_cam: np.ndarray = None
-    pts_infront: np.ndarray = None
+    pts_all: np.ndarray = None              # 3d lidar points in lidar frame
+    pts_cam: np.ndarray = None              # 3d lidar points in cam frame
+    pts_infront: np.ndarray = None          # 3d lidar points in cam frame in front of cam
     pts_colors_infront: np.ndarray = None
 
     def load_image_and_calib(self):

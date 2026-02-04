@@ -55,6 +55,35 @@ def decompose_transform(T):
     rx, ry, rz = np.degrees([rx, ry, rz])
     return tx, ty, tz, rx, ry, rz
 
+def project_point_to_image_plane(point, T, K):
+    """
+    point : (3,) LiDAR point [X, Y, Z]
+    T     : (4,4) LiDAR -> camera transform
+    K     : (3,3) camera intrinsics
+    w, h  : image width/height (optional, for bounds checking)
+    """
+
+    # 1. Homogeneous point
+    p_h = np.array([point[0], point[1], point[2], 1.0])
+
+    # 2. Transform to camera frame
+    p_cam = T @ p_h
+    X, Y, Z = p_cam[:3]
+
+    # Behind camera or too close
+    if Z <= 0:
+        return None
+
+    # 3. Perspective division
+    x = X / Z
+    y = Y / Z
+
+    # 4. Apply intrinsics
+    u = K[0, 0] * x + K[0, 2]
+    v = K[1, 1] * y + K[1, 2]
+
+    return np.array([u, v])
+
 def filter_pts_to_image_plane(points, colors, T, K, w, h, img):
     N = points.shape[0]
 
@@ -148,7 +177,7 @@ def collect_lidar_neighbors_per_keypoint(
         Depth values (z) per keypoint.
     lidar_nn_per_kp_px : list of (Mi, 2) ndarrays
         Pixel coordinates of neighbors per keypoint.
-    lidar_nn_per_kp : list of (Mi, 3) ndarrays
+    lidar_nn_per_kp_pt : list of (Mi, 3) ndarrays
         3D LiDAR neighbors per keypoint (camera frame).
     nn_pts_all : (M, 3) ndarray
         All neighbor points concatenated.
@@ -160,7 +189,7 @@ def collect_lidar_neighbors_per_keypoint(
 
     keypoint_lidar_depths = []
     lidar_nn_per_kp_px = []
-    lidar_nn_per_kp = []
+    lidar_nn_per_kp_pt = []
 
     # ------------------------------------------------------------
     # Per-keypoint neighbor collection
@@ -175,14 +204,12 @@ def collect_lidar_neighbors_per_keypoint(
         # Get any neighbors that fall within pixel window
         if np.any(mask):
             depths = pts_cam[mask, 2]
-            lidar_nn_per_kp_px.append(
-                np.stack([u[mask], v[mask]], axis=1)
-            )
-            lidar_nn_per_kp.append(pts_infront[mask, :])
+            lidar_nn_per_kp_px.append(np.stack([u[mask], v[mask]], axis=1))
+            lidar_nn_per_kp_pt.append(pts_infront[mask, :])
         else:
             depths = np.array([])
             lidar_nn_per_kp_px.append(np.empty((0, 2)))
-            lidar_nn_per_kp.append(np.empty((0, 3)))
+            lidar_nn_per_kp_pt.append(np.empty((0, 3)))
 
         keypoint_lidar_depths.append(depths)
 
@@ -194,7 +221,7 @@ def collect_lidar_neighbors_per_keypoint(
     group_ids = []
 
     for i, (nn_pts, nn_pxs) in enumerate(
-        zip(lidar_nn_per_kp, lidar_nn_per_kp_px)
+        zip(lidar_nn_per_kp_pt, lidar_nn_per_kp_px)
     ):
         if nn_pts is None or len(nn_pts) == 0:
             continue
@@ -225,8 +252,11 @@ def collect_lidar_neighbors_per_keypoint(
     return LidarKeypointNeighbors(
         depths_per_kp=keypoint_lidar_depths,
         pxs_per_kp=lidar_nn_per_kp_px,
-        pts_per_kp=lidar_nn_per_kp,
+        pts_per_kp=lidar_nn_per_kp_pt,
         pts_all=nn_pts_all,
         pxs_all=nn_pxs_all,
         group_ids=group_ids,
+
+        num_kps=len(lidar_nn_per_kp_pt),
+        num_pts_all=len(nn_pts_all)
     )
