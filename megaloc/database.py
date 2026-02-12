@@ -34,42 +34,7 @@ def extract_megaloc_descriptor(img_path):
     desc = desc / np.linalg.norm(desc)
     return desc.astype(np.float32)
 
-
-# # -------------------------
-# #  Build Database
-# # -------------------------
-# def build_database(folder, output_file="results/megaloc_db_cam2.npz"):
-#     descs = []
-#     paths = []
-
-#     img_files = sorted([f for f in os.listdir(folder) if f.lower().endswith((".png",".jpg",".jpeg"))])
-#     for idx, f in enumerate(img_files):
-#         path = os.path.join(folder, f)
-#         paths.append(path)
-
-#         desc = extract_megaloc_descriptor(path)
-#         descs.append(desc)
-
-#         if idx % 50 == 0:
-#             print(f"[MegaLoc] processed {idx}/{len(img_files)}")
-
-#     descs = np.vstack(descs).astype(np.float32)  # (N, 8448)
-#     paths = np.array(paths)
-
-#     output_file = Path(output_file)              # convert to Path if it's a string
-#     output_file.parent.mkdir(parents=True, exist_ok=True)
-
-#     print(f"\nSaving → {output_file}")    
-#     np.savez(output_file, descs=descs, paths=paths)
-#     print("Done.\n")
-
-#     return descs, paths
-
-
-
-
-
-def build_database(root_folder, output_file="results/megaloc_db_cam2.npz"):
+def build_database(root_folder, output_file="results/megaloc_db_cam2.npz", ds_val = 1):
     descs = []
     paths = []
 
@@ -82,7 +47,7 @@ def build_database(root_folder, output_file="results/megaloc_db_cam2.npz"):
 
     total_images = 0
     for bag in bag_folders:
-        cam_dir = bag / "camera"
+        cam_dir = bag / "camera/rgb"
         if not cam_dir.exists():
             continue
 
@@ -101,9 +66,10 @@ def build_database(root_folder, output_file="results/megaloc_db_cam2.npz"):
             desc = extract_megaloc_descriptor(img_path)
 
             descs.append(desc)
-            paths.append(str(img_path))
+            paths.append(str(img_path.resolve()))
 
-            if idx % 50 == 0:
+            # Downsample images
+            if idx % ds_val == 0:
                 print(f"  processed {idx}/{len(img_files)} in {bag.name}")
 
     # -------------------------
@@ -120,6 +86,7 @@ def build_database(root_folder, output_file="results/megaloc_db_cam2.npz"):
     np.savez(output_file, descs=descs, paths=paths)
 
     print(f"\nDone. Total images processed: {total_images}")
+    print("Desc shape", descs.shape)
     return descs, paths
 
 # # -------------------------
@@ -130,7 +97,8 @@ def build_database(root_folder, output_file="results/megaloc_db_cam2.npz"):
 
 
 db_descs, db_paths = build_database(
-    "../data/makalii_point/processed_data_imggps/cam2"
+    "../data/makalii_point/processed_lidar_cam_gps/cam2",
+    output_file="results/megaloc_db_lcn_cam2.npz"
 )
 
 print(f"Database built with {len(db_paths)} images — descriptor dim = {db_descs.shape[1]}")

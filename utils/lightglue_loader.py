@@ -55,6 +55,14 @@ class LightGlueVisualizer:
                 0, f"Stop after {matches01['stop']} layers", fs=20
             )
 
+    def visualize_inliers(self, image_path0, image_path1, m_kpts0, m_kpts1, title=True):
+        """Visualize LightGlue matches between two images"""
+        image0 = load_image(image_path0)
+        image1 = load_image(image_path1)
+
+        viz2d.plot_images([image0, image1])
+        viz2d.plot_matches(m_kpts0, m_kpts1, color="lime", lw=0.2)
+
 
     def visualize_keypoints(self, image_path0, image_path1):
         """Visualize keypoints with pruning confidence coloring"""

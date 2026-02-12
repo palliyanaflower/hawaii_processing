@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import yaml
 from pathlib import Path
+import shutil
 
 # Create a yaml file for each individual bags, so we don't need to download all db3 files
 def create_yaml_for_each_bag(original_metadata_path, subset_files, output_root):
@@ -42,20 +43,44 @@ def create_yaml_for_each_bag(original_metadata_path, subset_files, output_root):
             yaml.dump(new_meta, f, sort_keys=False)
         print(f"Created {yaml_path}")
 
+def move_db3_files(bag_files, source_dir, output_root):
+    source_dir = Path(source_dir)
+    output_root = Path(output_root)
+
+    for bag_file in bag_files:
+        src = source_dir / bag_file
+        dest_dir = output_root / bag_file.replace(".db3", "")
+        dest_dir.mkdir(parents=True, exist_ok=True)
+
+        dest = dest_dir / bag_file
+
+        if not src.exists():
+            print(f"❌ File not found: {src}")
+            continue
+
+        print(f"📦 Moving {src} → {dest}")
+        shutil.move(str(src), str(dest))
+
+    print("\n🎉 All files moved!")
+
 if __name__ == "__main__":
-    original_metadata = "data/makalii_point/cam3/metadata.yaml"
+
+    source_dir = "."   # folder where db3 files currently live
+    output_root = "data/makalii_point/cam2"
+    original_metadata = "data/makalii_point/cam2/metadata.yaml"
+
     subset_files = [
-        "bag_camera_3_2025_08_13-01_35_58_40.db3",
+        "bag_camera_2_2025_08_13-01_35_58_16.db3"
+
     ]
-    output_root = "data/makalii_point/cam3"
 
     create_yaml_for_each_bag(original_metadata, subset_files, output_root)
 
+    move_db3_files(subset_files, source_dir, output_root)
 
 
 # #!/usr/bin/env python3
 # import yaml
-# import shutil
 # from pathlib import Path
 
 # # =========================
@@ -101,28 +126,10 @@ if __name__ == "__main__":
 #         print(f"📝 Created metadata → {yaml_path}")
 
 
-# # =========================
-# # NEW → Move db3 to new directory
-# # =========================
-# def move_db3_files(bag_files, source_dir, output_root):
-#     source_dir = Path(source_dir)
-#     output_root = Path(output_root)
+# =========================
+# NEW → Move db3 to new directory
+# =========================
 
-#     for bag_file in bag_files:
-#         src = source_dir / bag_file
-#         dest_dir = output_root / bag_file.replace(".db3", "")
-#         dest_dir.mkdir(parents=True, exist_ok=True)
-
-#         dest = dest_dir / bag_file
-
-#         if not src.exists():
-#             print(f"❌ File not found: {src}")
-#             continue
-
-#         print(f"📦 Moving {src} → {dest}")
-#         shutil.move(str(src), str(dest))
-
-#     print("\n🎉 All files moved!")
 
 
 # # =========================

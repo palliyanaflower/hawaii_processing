@@ -16,7 +16,9 @@ class CameraView:
 
     # Filled later
     img: np.ndarray = None
-    K_proj: np.ndarray = None
+    K: np.ndarray = None               
+    dist: np.ndarray = None               
+    K_proj: np.ndarray = None               # After already distorted
     u: np.ndarray = None
     v: np.ndarray = None
     pts_all: np.ndarray = None              # 3d lidar points in lidar frame
@@ -37,6 +39,8 @@ class CameraView:
 
         self.img = img
         self.K_proj = K_proj
+        self.K = K
+        self.dist = dist
 
     def project_lidar(self):
         points, _, colors = loader.lidar_pcd(self.lidar_pcd_path)

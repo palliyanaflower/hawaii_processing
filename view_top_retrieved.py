@@ -1,4 +1,3 @@
-import os
 import json
 import yaml
 import math
@@ -7,202 +6,32 @@ from pathlib import Path
 from collections import defaultdict
 import numpy as np
 from tqdm import tqdm
-import matplotlib.pyplot as plt
-from matplotlib.widgets import Button
+import json
 
 import torch
 from sklearn.neighbors import NearestNeighbors
 from PIL import Image
 from torchvision import transforms
 
-# Description: GUI for clicking through each query match
+from utils.lightglue_loader import LightGlueVisualizer
+import utils.viz as viz
 
-# -------------------------
+# Description: GUI for clicking through each single query match (after MegaLoc + LightGlue)
+
+# =========================
 # Config
-# -------------------------
-CAM2_ROOT = Path("../data/makalii_point/processed_lidar_cam_gps/cam2")
-CAM3_ROOT = Path("../data/makalii_point/processed_lidar_cam_gps/cam3")
-DB_FILE = Path("results/megaloc_db_lcn_cam2.npz")
+# =========================
+CAM2_ROOT = Path("data/makalii_point/processed_lidar_cam_gps/cam2")
+CAM3_ROOT = Path("data/makalii_point/processed_lidar_cam_gps/cam3")
+DB_FILE = Path("megaloc/results/megaloc_db_lcn_cam2.npz")
 
-TOP_K = 10       # compute Recall@1 and Recall@5
-THRESH = 0.8    # neighbor distance for accepting match
-X_METERS = 30
+TOP_K = 5       # number MegaLoc guesses
+THRESH = 1.0    # neighbor distance for accepting match
+MIN_NUM_MATCHES = 100
 
-# -------------------------
-# Plot helper
-# -------------------------
-def plot_retrieval_paths(
-    true_cam2_gps_xy_all,
-    query_gps_xy,
-    true_cam2_gps_xy,
-    retrieved_cam2_gps_xy_k,
-    path_quer,
-    path_retr,
-    path_true,
-    N_init=0
-):
-    query_gps_xy = np.asarray(query_gps_xy)
-    true_cam2_gps_xy = np.asarray(true_cam2_gps_xy)
-    retrieved_cam2_gps_xy_k = np.asarray(retrieved_cam2_gps_xy_k)
-
-    max_N = len(query_gps_xy) - 1
-    N = N_init
-
-    # ---- Figure layout ----
-    fig = plt.figure(figsize=(14, 10))
-    gs = fig.add_gridspec(
-        nrows=3,
-        ncols=2,
-        width_ratios=[2.5, 1],
-        height_ratios=[1, 1, 1],
-        wspace=0.05,
-        hspace=0.1
-    )
-
-    ax_xy   = fig.add_subplot(gs[:, 0])
-    ax_qimg = fig.add_subplot(gs[0, 1])
-    ax_rimg = fig.add_subplot(gs[1, 1])
-    ax_timg = fig.add_subplot(gs[2, 1])
-
-    img_axes = [ax_qimg, ax_rimg, ax_timg]
-
-    plt.subplots_adjust(bottom=0.15)
-
-    def load_image_safe(path):
-        if path is None or not os.path.exists(path):
-            return None
-        return plt.imread(path)
-
-    def draw():
-        ax_xy.clear()
-
-        q = query_gps_xy[N:N+1]
-        r = retrieved_cam2_gps_xy_k[N:N+1]
-
-        # Query GPS
-        ax_xy.scatter(
-            q[:, 0], q[:, 1],
-            label="cam3 (query)",
-            s=40
-        )
-
-        # True cam2 full path
-        ax_xy.scatter(
-            true_cam2_gps_xy_all[:, 0],
-            true_cam2_gps_xy_all[:, 1],
-            label="cam2 true path",
-            s=40,
-            marker="*"
-        )
-
-        # Retrieved cam2 (top-k)
-        for i in range(r.shape[1]):
-            rx = r[:, i, :]
-
-            ax_xy.scatter(
-                rx[:, 0], rx[:, 1],
-                s=80,
-                alpha=0.5,
-                # label="cam2 retrieved (top-1)" if i == 0 else None
-                label="cam2 retrieved " + str(i)
-
-            )
-
-            for (rx_, ry_), (qx_, qy_) in zip(rx, q):
-                if np.isnan(rx_) or np.isnan(ry_):
-                    continue
-                ax_xy.plot(
-                    [rx_, qx_],
-                    [ry_, qy_],
-                    "r--",
-                    linewidth=1
-                )
-
-        ax_xy.set_title(f"Retrieval Evaluation — N = {N}")
-        ax_xy.set_xlabel("X (meters)")
-        ax_xy.set_ylabel("Y (meters)")
-        ax_xy.set_xlim(-500, 500)
-        ax_xy.grid(True)
-        ax_xy.legend()
-        ax_xy.set_aspect("equal", adjustable="box")
-
-
-        # ---- Images ----
-        images = [
-            load_image_safe(path_quer[N]),
-            load_image_safe(path_retr[N][0]),
-            load_image_safe(path_true[N]),
-        ]
-
-        titles = [
-            "Query (cam3)",
-            "Retrieved (cam2)",
-            "True (cam2)"
-        ]
-
-        for ax, img, title in zip(img_axes, images, titles):
-            ax.clear()
-            if img is not None:
-                ax.imshow(img)
-            ax.set_title(title, fontsize=10)
-            ax.axis("off")
-
-        fig.canvas.draw_idle()
-
-    # ---- Keyboard controls ----
-    def on_key(event):
-        nonlocal N
-        if event.key == "left":
-            N = max(0, N - 1)
-            draw()
-        elif event.key == "right":
-            N = min(max_N, N + 1)
-            draw()
-
-    fig.canvas.mpl_connect("key_press_event", on_key)
-
-    # ---- Buttons ----
-    ax_prev = plt.axes([0.30, 0.05, 0.15, 0.06])
-    ax_next = plt.axes([0.55, 0.05, 0.15, 0.06])
-
-    btn_prev = Button(ax_prev, "Prev")
-    btn_next = Button(ax_next, "Next")
-
-    def prev(event):
-        nonlocal N
-        N = max(0, N - 1)
-
-        # Print paths
-        print("\nQuery")
-        print(path_quer[N])
-        print("\nRetrieved")
-        for p in path_retr[N]:
-            print(p)
-
-        draw()
-
-    def next_(event):
-        nonlocal N
-        N = min(max_N, N + 1)
-
-        # Print paths
-        print("\nQuery")
-        print(path_quer[N])
-        print("\nRetrieved")
-        for p in path_retr[N]:
-            print(p)
-
-        draw()
-
-    btn_prev.on_clicked(prev)
-    btn_next.on_clicked(next_)
-
-    draw()
-    plt.show()
-
-# -------------------------
+# =========================
 # Utilities: GPS <-> meters
-# -------------------------
+# =========================
 def gps_deg_to_meters(lat1, lon1, lat2, lon2):
     """
     Approximate conversion of lat/lon differences to meters (local equirectangular).
@@ -248,9 +77,9 @@ def gps_array_to_meters(query_lat, query_lon, db_gps_array):
     x, y = latlon_to_xy_m(db_gps_array[:,0], db_gps_array[:,1], query_lat, query_lon)
     return np.sqrt(x**2 + y**2)
 
-# -------------------------
+# =========================
 # Load MegaLoc model
-# -------------------------
+# =========================
 device = "cuda" if torch.cuda.is_available() else "cpu"
 print("Using device:", device)
 print("Loading MegaLoc model (this may take a moment)...")
@@ -275,9 +104,9 @@ def extract_descriptor(img_path):
         desc /= norm
     return desc
 
-# -------------------------
+# =========================
 # Load DB descriptors + paths
-# -------------------------
+# =========================
 if not DB_FILE.exists():
     raise FileNotFoundError(f"DB file not found: {DB_FILE}")
 
@@ -287,10 +116,9 @@ db_paths = np.array([Path(p) for p in db["paths"]])  # array of Paths
 
 print(f"\nLoaded DB: {len(db_paths)} images, descriptor dim = {db_descs.shape[1]}")
 
-# -------------------------
-# Load cam2 GPS mapping (from matches.json/gps/*.yaml)
-# -------------------------
-
+# =========================
+# Load cam2 GPS mapping
+# =========================
 
 # Helper to read gps yaml file (YAML format has keys 'lat' and 'lon')
 def read_gps_yaml(p: Path):
@@ -319,16 +147,19 @@ for bag in sorted(d for d in CAM2_ROOT.iterdir() if d.is_dir()):
     cam_folder = bag / "camera/rgb"
 
     if not gps_folder.exists() or not cam_folder.exists():
+        print("Folder does not exist")
         continue
 
     for cam_file in sorted(cam_folder.iterdir()):
         if not cam_file.is_file():
+            print("Cam file does not exist")
             continue
 
-        # assume same filename, possibly different extension
+        # assume same filename, already synced
         gps_file = gps_folder / cam_file.with_suffix(".json").name
 
         if not gps_file.exists():
+            print("Gps file does not exist")
             continue
 
         cam2_gps_map[str(cam_file.resolve())] = read_gps_json(gps_file)
@@ -354,7 +185,7 @@ for i, p in enumerate(db_paths):
             db_index_to_gps[i] = (np.nan, np.nan)
 
 if missing_gps > 0:
-    print(f"Warning: {missing_gps} DB entries have no GPS mapping (they'll be ignored in GPS-based computations).")
+    print(f"\nWarning: {missing_gps} DB entries have no GPS mapping (they'll be ignored in GPS-based computations).")
 
 # Make numpy array with only the DB entries that have valid GPS
 valid_indices = [i for i, g in enumerate(db_index_to_gps) if not (math.isnan(g[0]) or math.isnan(g[1]))]
@@ -369,10 +200,10 @@ nn_full.fit(db_descs)
 # We'll use db_gps_arr for GPS nearest lookup (kdtree-like via brute-force vectorized search)
 print("DB GPS array shape:", db_gps_arr.shape)
 
-# -------------------------
+# =========================
 # Load cam3 queries (all bags)
-# -------------------------
-print("Collecting cam3 queries (images + gps)...")
+# =========================
+print("\nCollecting cam3 queries (images + gps)...")
 queries = []  # list of dicts: {img_path, lat, lon}
 for bag in sorted([d for d in CAM3_ROOT.iterdir() if d.is_dir()]):
     cam_folder = bag / "camera/rgb"
@@ -395,12 +226,14 @@ print(f"Total cam3 queries found: {len(queries)}")
 if len(queries) == 0:
     raise RuntimeError("No cam3 queries found. Check CAM3_ROOT path and expected structure.")
 
-# Pick a reference lat lon
-# Reference origin at the first cam3 query GPS
+# ---------------------------
+# Get true GPS pose for cam2
+# ---------------------------
+# Pick a reference lat lon at the first cam3 query GPS
 ref_lat = float(queries[0]["lat"])
 ref_lon = float(queries[0]["lon"])
 
-# convert true cam2 gps → xy meters
+# Convert true cam2 gps → xy meters
 true_cam2_xy_list_all = []
 for true_lat, true_lon in db_gps_arr:
     tx, ty = latlon_to_xy_m(true_lat, true_lon, ref_lat, ref_lon)
@@ -408,68 +241,82 @@ for true_lat, true_lon in db_gps_arr:
 true_cam2_xy_list_all = np.array(true_cam2_xy_list_all)
 
 
-# -------------------------
-# Evaluate retrievals
-# -------------------------
-results = []
-recall1_count = 0
-recall5_count = 0
-in_xm_count = 0
-errors_m = []
-X_METERS = 30
-
+# =========================
+# Get LightGlue Best Match
+# =========================
 query_xy_list = []
 true_cam2_xy_list = []
 retrieved_cam2_xy_list = []
+num_matched_list = []
 
 path_quer = []
 path_true = []
 path_retr = []
 
 print("Running retrieval for each query (this may take time if many queries and GPU is used for descriptors)...")
-for q in tqdm(queries):
-    qimg = q["img"]
+for q in tqdm(queries): # progress bar
+# for i in range(5):
+    # q = queries[i]
+    qpth = q["img"]
     qlat = q["lat"]
     qlon = q["lon"]
 
-    # descriptor
-    qdesc = extract_descriptor(qimg).reshape(1, -1)
-
-    # retrieve top-K by descriptor
-    dists, ids = nn_full.kneighbors(qdesc, n_neighbors=TOP_K)
-    topk_ids = ids[0].tolist()  # indices into db_paths (full DB)
-    topk_dists = dists[0].tolist()
-
+    # -----------------------------
+    # Get true poses / correspondences
+    # -----------------------------
     # compute true nearest cam2 by GPS (meters) using db_gps_arr which corresponds to valid_indices
     # first compute distances to valid entries
     gps_dists_m = gps_array_to_meters(qlat, qlon, db_gps_arr)  # shape (M,)
     true_local_idx = int(np.argmin(gps_dists_m))
     true_db_index = valid_indices[true_local_idx]  # index into full db_paths
     true_distance_m = float(gps_dists_m[true_local_idx])
-
     true_lat, true_lon = db_gps_arr[true_local_idx]
 
+    # -----------------------------
+    # Get GPS info
+    # -----------------------------
+    # convert cam3 query gps → xy meters
+    qx, qy = latlon_to_xy_m(qlat, qlon, ref_lat, ref_lon)
+    query_xy_list.append((qx, qy))
 
-    # check if true_db_index is in top-k results
-    in_topk = true_db_index in topk_ids
-    in_top1 = (topk_ids[0] == true_db_index)
+    # convert true cam2 gps → xy meters
+    tx, ty = latlon_to_xy_m(true_lat, true_lon, ref_lat, ref_lon)
+    true_cam2_xy_list.append((tx, ty))
 
-    if in_top1:
-        recall1_count += 1
-    if in_topk:
-        recall5_count += 1
+    # -----------------------------
+    # Retrieve top-K by MegaLoc descriptor
+    # -----------------------------
+    qdesc = extract_descriptor(qpth).reshape(1, -1)
+    dists, ids = nn_full.kneighbors(qdesc, n_neighbors=TOP_K)
+    topk_ids = ids[0].tolist()  # indices into db_paths (full DB)
+    topk_dists = dists[0].tolist()
 
     # ---Get top k matches for each query---
     # compute retrieval error in meters: distance between retrieved top-1 gps and true gps
     # but first get gps for top-1 (if gps exists)
-    retrieved_k = []
-    path_retr_temp = []
+    retrieved_k = [(np.nan, np.nan)]
+    path_retr_temp = [""]
+    highest_num_matched = 0
     for i in range(TOP_K):
-        path_retr_temp.append(db_paths[topk_ids[i]])
+        # -------------------------
+        # Get LightGlue Matches
+        # -------------------------
+        rpth =  db_paths[topk_ids[i]]   # Path to retrieved image
+        vis = LightGlueVisualizer()
+        m_kpxs_cam3, m_kpxs_cam2 = vis.get_matched_keypoints(
+            qpth,
+            rpth,
+        )
+
+        num_matched = len(m_kpxs_cam2)
+
+        # print("num matched points", len(m_kpxs_cam2), len(m_kpxs_cam3))
+
+        # -------------------------
+        # Save info
+        # -------------------------
         retrieved_idx = topk_ids[i]
         retrieved_dist = topk_dists[i]
-        # print("dist", retrieved_dist)
-        retrieved_gps = None
         if retrieved_idx in valid_indices and retrieved_dist < THRESH:
             # map retrieved_idx to position in db_gps_arr
             retrieved_local_pos = valid_indices.index(retrieved_idx)
@@ -482,43 +329,59 @@ for q in tqdm(queries):
             x_r, y_r = latlon_to_xy_m(retrieved_lat, retrieved_lon, ref_lat, ref_lon)
             x_q, y_q = latlon_to_xy_m(true_lat, true_lon, ref_lat, ref_lon)
             dist_true_retr = np.sqrt((x_q - x_r)**2 + (y_q - y_r)**2)
-            in_xm = (dist_true_retr <= X_METERS)
-            if in_xm:
-                in_xm_count += 1
         else:
             # retrieved has no GPS; set NaNs
             retrieval_error_m = float("nan")
             retrieved_vs_true_error_m = float("nan")
-            # print("Not valid gps or distance")
-            # exit()
 
-        # convert retrieved cam2 gps → xy meters
-        if not math.isnan(retrieved_vs_true_error_m):
-            rx, ry = latlon_to_xy_m(retrieved_lat, retrieved_lon, ref_lat, ref_lon)
-            retrieved_k.append((rx, ry))
-        else:
-            retrieved_k.append((np.nan, np.nan))
+        # ----------------------------------------------
+        # Keep reference with highest LightGlue matches
+        # ----------------------------------------------
+        if num_matched > highest_num_matched:
+            highest_num_matched = num_matched
+
+            if num_matched > MIN_NUM_MATCHES:
+                rx, ry = latlon_to_xy_m(retrieved_lat, retrieved_lon, ref_lat, ref_lon)
+                retrieved_k = [(rx, ry)]
+                path_retr_temp = [rpth]
+
+
     retrieved_cam2_xy_list.append(retrieved_k)
-
-    # convert cam3 query gps → xy meters
-    qx, qy = latlon_to_xy_m(qlat, qlon, ref_lat, ref_lon)
-    query_xy_list.append((qx, qy))
-
-    # convert true cam2 gps → xy meters
-    tx, ty = latlon_to_xy_m(true_lat, true_lon, ref_lat, ref_lon)
-    true_cam2_xy_list.append((tx, ty))
+    num_matched_list.append(highest_num_matched)
 
     # Get image paths
-    path_quer.append(qimg)
+    path_quer.append(qpth)
     path_retr.append(path_retr_temp)
     path_true.append(db_paths[true_local_idx])
 
-plot_retrieval_paths(
+def path_to_str(p):
+    if isinstance(p, (list, tuple)):
+        return [path_to_str(x) for x in p]
+    return str(p)
+
+data = {
+    "queries": path_to_str(path_quer),
+    "retrieved": path_to_str(path_retr),
+    "true": path_to_str(path_true),
+}
+with open("matched_img_paths.json", "w") as f:
+    json.dump(data, f, indent=2)
+# =========================
+# Visualize Results
+# =========================
+# viz.plot_retrieval_paths(
+#     true_cam2_xy_list_all,
+#     query_xy_list,
+#     true_cam2_xy_list,
+#     retrieved_cam2_xy_list,
+#     path_quer,
+#     path_retr,
+#     path_true,
+#     num_matched_list
+# )
+
+viz.plot_all_retrieval_paths(
     true_cam2_xy_list_all,
     query_xy_list,
-    true_cam2_xy_list,
     retrieved_cam2_xy_list,
-    path_quer,
-    path_retr,
-    path_true
 )

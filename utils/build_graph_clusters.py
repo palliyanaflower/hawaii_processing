@@ -18,23 +18,13 @@ from KeypointNN import LidarKeypointNeighbors
 # Load Data
 # ============================================================
 
-# # Large change in scale / perspective
-# cam2_bagnum = 12
-# cam2_imgnum = 0
-# cam3_bagnum = 48
-# cam3_imgnum = 3
-
-# Lidar points not on building
-cam2_bagnum = 14
-cam2_imgnum = 0
-cam3_bagnum = 46
+# Large change in scale / perspective
+cam3_bagnum = 51
 cam3_imgnum = 0
+cam2_bagnum = 10
+cam2_imgnum = 3
 
-# # Best case scenario
-# cam2_bagnum = 18
-# cam2_imgnum = 3
-# cam3_bagnum = 40
-# cam3_imgnum = 26
+
 cameras = [
     CameraView(
         name="cam2",
@@ -62,7 +52,7 @@ cameras = [
         name="cam3",
         image_path=Path(
             "data/makalii_point/processed_lidar_cam_gps/cam3/"
-            f"bag_camera_3_2025_08_13-01_35_58_{cam3_bagnum}/camera/left_cam/{cam3_imgnum}.png"
+            f"bag_camera_3_2025_08_13-01_35_58_{cam3_bagnum}/camera/rgb/{cam3_imgnum}.png"
         ),
         lidar_pcd_path=Path(
             "data/makalii_point/processed_lidar_cam_gps/cam3/"
@@ -85,12 +75,16 @@ for cam in cameras:
 # ============================================================
 # LightGlue matches
 # ============================================================
+print("\Paths")
+print(cameras[1].image_path)
+print(cameras[0].image_path)
 vis = LightGlueVisualizer()
-m_kpxs_cam2, m_kpxs_cam3 = vis.get_matched_keypoints(
-    cameras[0].image_path,
+m_kpxs_cam3, m_kpxs_cam2 = vis.get_matched_keypoints(
     cameras[1].image_path,
+    cameras[0].image_path,
 )
 
+print("Num LightGlue Matches", len(m_kpxs_cam2))
 keypoints = {
     "cam2": m_kpxs_cam2,
     "cam3": m_kpxs_cam3,
@@ -113,22 +107,22 @@ for cam in cameras:
     )
 
     num_with_neighbors = sum([len(d) > 0 for d in nn[cam.name].pxs_per_kp])
-    print("Num keypoints with neighbors:", num_with_neighbors)
+    print("\nNum keypoints with neighbors:", num_with_neighbors)
     print("Num neighbors total:", len(nn[cam.name].pxs_all))
 
-print("\nNum keypoints total", nn["cam2"].num_kps, nn["cam3"].num_kps)
-print("group ids")
-print(nn["cam2"].group_ids)
 
 # ============================================================
 # Plotting image, keypoints, lidar
 # ============================================================
 
-# # Keypoint matches
-vis.visualize_matches(cameras[0].image_path, cameras[1].image_path)
-viz.show_lidar_neighbors_2d(cameras, keypoints, nn)
-viz.show_lidar_neighbors_3d(cameras, nn)
-viz.show_lidar_2d(cameras) # all lidar points
+# Keypoint matches
+vis.visualize_matches(
+    cameras[1].image_path,  
+    cameras[0].image_path,  
+)
+# viz.show_lidar_neighbors_2d(cameras, keypoints, nn)
+# viz.show_lidar_neighbors_3d(cameras, nn)
+# viz.show_lidar_2d(cameras) # all lidar points
 # plt.show()
 
 # ============================================================
@@ -269,8 +263,8 @@ pc_clustered_filtered["cam3"] = PointCloudClustered(
                                                 pts=np.array(centroid_pts_cam3),
                                                 pxs=np.array(centroid_pxs_cam3)
                                             )
-viz.show_points_2d(cameras, keypoints, pc_clustered_filtered)
-viz.show_points_3d(cameras, pc_clustered_filtered)
+# viz.show_points_2d(cameras, keypoints, pc_clustered_filtered)
+# viz.show_points_3d(cameras, pc_clustered_filtered)
 
 # ============================================================
 # Build consistency matrix
@@ -290,7 +284,8 @@ A = np.column_stack((idx, idx))
 # Run CLIPPER
 # --------------------------------------------------
 print("\npc", D1.shape, D2.shape)
-print("\nNum associations", A.shape)
+print("\nLightglue matches:", len(m_kpxs_cam2))
+print("Num associations:", A.shape[0])
 
 iparams = clipperpy.invariants.EuclideanDistanceParams()
 iparams.sigma = 0.4
@@ -345,7 +340,7 @@ pc_clustered_clipper["cam3"] = PointCloudClustered(
                                                 pxs=np.array(inlier_pxs_cam3)
                                             )
 # viz.show_points_2d(cameras, keypoints, pc_clustered_clipper, kp_size=35)
-viz.show_points_3d(cameras, pc_clustered_clipper, centroid_size=25)
+# viz.show_points_3d(cameras, pc_clustered_clipper, centroid_size=25)
 
 
 # --------------------------------------------------

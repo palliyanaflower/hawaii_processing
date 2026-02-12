@@ -15,6 +15,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from pathlib import Path
 
+# Description: View bags on satellite with robot heading
+
 def quaternion_to_yaw(qx, qy, qz, qw):
     siny_cosp = 2.0 * (qw * qz + qx * qy)
     cosy_cosp = 1.0 - 2.0 * (qy * qy + qz * qz)

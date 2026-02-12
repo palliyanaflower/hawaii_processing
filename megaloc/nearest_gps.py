@@ -27,6 +27,8 @@ from sklearn.neighbors import NearestNeighbors
 from PIL import Image
 from torchvision import transforms
 
+# Description: A single static image showing the query and reference matches
+
 # -------------------------
 # Config
 # -------------------------
