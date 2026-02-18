@@ -110,3 +110,43 @@ class LightGlueVisualizer:
             m_kpts0.cpu().numpy(),
             m_kpts1.cpu().numpy()
         )
+
+    def get_matched_keypoints_and_descriptors(self, image_path0, image_path1):
+        image0 = load_image(image_path0)
+        image1 = load_image(image_path1)
+
+        feats0 = self.extractor.extract(image0.to(self.device))
+        feats1 = self.extractor.extract(image1.to(self.device))
+        matches01 = self.matcher({"image0": feats0, "image1": feats1})
+
+        feats0, feats1, matches01 = [
+            rbd(x) for x in [feats0, feats1, matches01]
+        ]
+
+        kpts0 = feats0["keypoints"]
+        kpts1 = feats1["keypoints"]
+
+        desc0 = feats0["descriptors"]
+        desc1 = feats1["descriptors"]
+
+        matches = matches01["matches"]
+
+        # Matched keypoints
+        m_kpts0 = kpts0[matches[:, 0]]
+        m_kpts1 = kpts1[matches[:, 1]]
+
+        # Matched descriptors
+        m_desc0 = desc0[matches[:, 0]]
+        m_desc1 = desc1[matches[:, 1]]
+
+        # Score for keypoint match
+        scores = matches01["scores"]
+
+
+        return (
+            m_kpts0.cpu().numpy(),
+            m_kpts1.cpu().numpy(),
+            m_desc0.cpu().numpy(),
+            m_desc1.cpu().numpy(),
+            scores.cpu().detach().numpy()
+        )

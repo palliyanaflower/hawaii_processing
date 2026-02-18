@@ -364,7 +364,11 @@ for path_idx in range(START_IDX, len(path_quer_all)):
     @dataclass
     class PointCloudClustered:
         
-        kidxs: np.ndarray            # (M,) Keypoint index of each cluster
+        kvalid: np.ndarray           # (N, ) Indicates if that keypoint had any valid lidar clusters(Number of original keypoints)
+        pts_per_kp: List[np.ndarray] 
+        pxs_per_kp: List[np.ndarray] 
+        
+        kidxs: np.ndarray            # (M,)  Associated keypoint index of each cluster
         pts: np.ndarray              # (M,3) 3D points of the cluster centroids
         pxs: np.ndarray              # (M,2) 2D pixels coords of the cluster centroids
 
@@ -373,14 +377,22 @@ for path_idx in range(START_IDX, len(path_quer_all)):
     # ---------------------------------------------------
     pc_clustered = {}
 
+    print("\nnum keypoints test")
+    print(nn["cam2"].num_kps)
+    print(nn["cam3"].num_kps)
     for cam in cameras:
         nn_info = nn[cam.name]
+
+        kvalid_list = []
+        centroid_pts_pkp = []
+        centroid_pxs_pkp = []
 
         centroid_kidxs = []
         centroid_pts = []
         centroid_pxs = []
 
         for k_idx in range(nn_info.num_kps):
+
             depths = np.asarray(nn_info.depths_per_kp[k_idx])
             pxs    = np.asarray(nn_info.pxs_per_kp[k_idx])
             pts    = np.asarray(nn_info.pts_per_kp[k_idx])
@@ -392,6 +404,11 @@ for path_idx in range(START_IDX, len(path_quer_all)):
                 centroid_kidxs.append(-1)
                 centroid_pts.append(np.zeros(3))
                 centroid_pxs.append(np.zeros(2))
+
+                kvalid_list.append(False)
+                centroid_pts_pkp.append(np.zeros(3))
+                centroid_pxs_pkp.append(np.zeros(2)) 
+
                 continue
 
             # -----------------------
@@ -407,53 +424,76 @@ for path_idx in range(START_IDX, len(path_quer_all)):
                 centroid_kidxs.append(-1)
                 centroid_pts.append(np.zeros(3))
                 centroid_pxs.append(np.zeros(2))
+
+                kvalid_list.append(False)
+                centroid_pts_pkp.append(np.zeros(3))
+                centroid_pxs_pkp.append(np.zeros(2)) 
                 continue
 
-            b = signif_bins[0]               # nearest (smallest depth)
-            edge = bin_edges[b]
+            centroid_pts_temp = []
+            centroid_pxs_temp = []
 
-            # -----------------------
-            # Keep lidar points in bin
-            # -----------------------
-            mask = (depths >= edge) & (depths < edge + BIN_WIDTH)
+            for b in signif_bins:
+                edge = bin_edges[b]
 
-            pts_keep = pts[mask]
-            pxs_keep = pxs[mask]
+                # -----------------------
+                # Keep lidar points in bin
+                # -----------------------
+                mask = (depths >= edge) & (depths < edge + BIN_WIDTH)
 
-            if pts_keep.shape[0] == 0:
-                centroid_kidxs.append(-1)
-                centroid_pts.append(np.zeros(3))
-                centroid_pxs.append(np.zeros(2))
-                continue
+                pts_keep = pts[mask]
+                pxs_keep = pxs[mask]
 
-            # -----------------------
-            # Centroid
-            # -----------------------
-            centroid_pt = pts_keep.mean(axis=0)
+                if pts_keep.shape[0] == 0:
+                    centroid_kidxs.append(-1)
+                    centroid_pts.append(np.zeros(3))
+                    centroid_pxs.append(np.zeros(2))
 
-            # Only for visualization
-            centroid_px = cg.project_point_to_image_plane(
-                centroid_pt,
-                cam.T_lidar_cam,
-                cam.K_proj
-            )
+                    kvalid_list.append(False)
+                    centroid_pts_pkp.append(np.zeros(3))
+                    centroid_pxs_pkp.append(np.zeros(2))    
+                    continue
 
-            centroid_kidxs.append(k_idx)
-            centroid_pts.append(centroid_pt)
-            centroid_pxs.append(centroid_px)
+                # -----------------------
+                # Centroids (may have multiple per keypoint)
+                # -----------------------
+                centroid_pt = pts_keep.mean(axis=0)
 
-        print("centroid k idxs", centroid_kidxs)
+                # Only for visualization
+                centroid_px = cg.project_point_to_image_plane(
+                    centroid_pt,
+                    cam.T_lidar_cam,
+                    cam.K_proj
+                )
+                centroid_pts_temp.append(centroid_pt)
+                centroid_pxs_temp.append(centroid_px)
 
+                centroid_kidxs.append(k_idx)
+                centroid_pts.append(centroid_pt)
+                centroid_pxs.append(centroid_px)
+
+            kvalid_list.append(True)
+            centroid_pts_pkp.append(np.array(centroid_pts_temp))
+            centroid_pxs_pkp.append(np.array(centroid_pxs_temp))
+
+        # print("\nkvalid test")
+        # print(len(kvalid_list))
         pc_clustered[cam.name] = PointCloudClustered(
+            kvalid=np.asarray(kvalid_list),
+            pts_per_kp=centroid_pts_pkp,
+            pxs_per_kp=centroid_pxs_pkp,
             kidxs=np.asarray(centroid_kidxs),
             pts=np.asarray(centroid_pts),
             pxs=np.asarray(centroid_pxs)
         )
 
-
     # ------------------------
     # Get valid cluster pairs 
     # ------------------------
+    kvalid_filtered = {"cam2":[], "cam3":[]}
+    pts_per_kp_filtered = {"cam2":[], "cam3":[]}
+    pxs_per_kp_filtered = {"cam2":[], "cam3":[]}
+
     centroid_kidxs = []
 
     centroid_pts_cam2 = []
@@ -462,31 +502,58 @@ for path_idx in range(START_IDX, len(path_quer_all)):
     centroid_pxs_cam2 = []
     centroid_pxs_cam3 = []
 
-    for k_idx in range(nn["cam2"].num_kps):
+    # Iterate through all keypoints
+    for k_idx in range(len(pc_clustered["cam2"].kvalid)):
 
-        k_idx_cam2 = pc_clustered["cam2"].kidxs[k_idx]
-        k_idx_cam3 = pc_clustered["cam3"].kidxs[k_idx]
+        # Check if keypoint has valid lidar cluster
+        cam2_valid = pc_clustered["cam2"].kvalid[k_idx]
+        cam3_valid = pc_clustered["cam3"].kvalid[k_idx]
+        # print("\nvalid?", k_idx, cam2_valid, cam3_valid)
 
-        # Keep if keypoint is present in both cluster clouds
-        if k_idx_cam2!=-1 and k_idx_cam3!=-1:
+        if cam2_valid and cam3_valid:
+            kvalid_filtered["cam2"].append(1)
+            pts_per_kp_filtered["cam2"].append(pc_clustered["cam2"].pts_per_kp[k_idx])
+            pxs_per_kp_filtered["cam2"].append(pc_clustered["cam2"].pxs_per_kp[k_idx])
+
+            kvalid_filtered["cam3"].append(1)
+            pts_per_kp_filtered["cam3"].append(pc_clustered["cam3"].pts_per_kp[k_idx])
+            pxs_per_kp_filtered["cam3"].append(pc_clustered["cam3"].pxs_per_kp[k_idx])
+
+            # Append all centroids for both keypoints (might have different num signif depths for each cam)
             centroid_kidxs.append(k_idx)
 
-            centroid_pts_cam2.append(pc_clustered["cam2"].pts[k_idx])
-            centroid_pts_cam3.append(pc_clustered["cam3"].pts[k_idx])
 
-            centroid_pxs_cam2.append(pc_clustered["cam2"].pxs[k_idx])
-            centroid_pxs_cam3.append(pc_clustered["cam3"].pxs[k_idx])
+            # print("\nkp", k_idx, len(kvalid_list))
+            # print("len", len(pc_clustered["cam2"].pts_per_kp[k_idx]))
+            for p_idx in range(len(pc_clustered["cam2"].pts_per_kp[k_idx])):
+                # print("\ntest", p_idx)
+                # print(pc_clustered["cam2"].pts_per_kp[k_idx])
+                # print(pc_clustered["cam2"].pxs_per_kp[k_idx])
+                centroid_pts_cam2.append(pc_clustered["cam2"].pts_per_kp[k_idx][p_idx])
+                centroid_pxs_cam2.append(pc_clustered["cam2"].pxs_per_kp[k_idx][p_idx])
+
+
+            for p_idx in range(len(pc_clustered["cam3"].pts_per_kp[k_idx])):
+                centroid_pts_cam3.append(pc_clustered["cam3"].pts_per_kp[k_idx][p_idx])
+                centroid_pxs_cam3.append(pc_clustered["cam3"].pxs_per_kp[k_idx][p_idx])
 
     pc_clustered_filtered = {}
 
     # These keypoints should now be matched putative associations
     # TODO have matches for different depth hypotheses
+    # TODO make dict instead of list of numpy arrays (keypoint to points)
     pc_clustered_filtered["cam2"] = PointCloudClustered(
+                                                    kvalid=kvalid_filtered["cam2"],               
+                                                    pts_per_kp=pts_per_kp_filtered["cam2"],       
+                                                    pxs_per_kp=pxs_per_kp_filtered["cam2"],        
                                                     kidxs=np.array(centroid_kidxs),
                                                     pts=np.array(centroid_pts_cam2),
                                                     pxs=np.array(centroid_pxs_cam2)
                                                 )
     pc_clustered_filtered["cam3"] = PointCloudClustered(
+                                                    kvalid=kvalid_filtered["cam3"],               
+                                                    pts_per_kp=pts_per_kp_filtered["cam3"],       
+                                                    pxs_per_kp=pxs_per_kp_filtered["cam3"],       
                                                     kidxs=np.array(centroid_kidxs),
                                                     pts=np.array(centroid_pts_cam3),
                                                     pxs=np.array(centroid_pxs_cam3)
@@ -498,16 +565,63 @@ for path_idx in range(START_IDX, len(path_quer_all)):
     # Build consistency matrix
     # ============================================================
 
-    # CLIPPER point clouds
-    D1 = pc_clustered_filtered["cam2"].pts.T.astype(np.float64)
-    D2 = pc_clustered_filtered["cam3"].pts.T.astype(np.float64)
+    # # CLIPPER point clouds
+    # D1 = pc_clustered_filtered["cam2"].pts.T.astype(np.float64)
+    # D2 = pc_clustered_filtered["cam3"].pts.T.astype(np.float64)
 
+    # CLIPPER associations. TODO If have multiple depth hypothesis, get all combos of potential matches. 
+    pc1 = []
+    pc2 = []
+    A = [] 
+    kp_idxs_D1 = []    # original keypoint indices
+    pt_idxs_D1 = []    # centroid indices for each keypoint
+    kp_idxs_D2 = []    # original keypoint indices
+    pt_idxs_D2 = []    # centroid indices for each keypoint
+    for k_idx in range(len(pc_clustered_filtered["cam2"].pts_per_kp)): 
+        # Get lidar neighbors around keypoint 
+        pts_i = pc_clustered_filtered["cam2"].pts_per_kp[k_idx] 
+        pts_j = pc_clustered_filtered["cam3"].pts_per_kp[k_idx] 
 
-    # CLIPPER associations
-    n = D1.shape[1]
-    idx = np.arange(n, dtype=np.int32)
-    A = np.column_stack((idx, idx))
+        # -------------------------------
+        # Make all putative associations 
+        # -------------------------------
+        for idx_i in range(len(pts_i)): 
+            for idx_j in range(len(pts_j)): 
+                A.append([idx_i+len(pc1), idx_j+len(pc2)])
 
+        # Gather points
+        for idx_i in range(len(pts_i)):
+            pc1.append(pts_i[idx_i])
+            kp_idxs_D1.append(k_idx)
+            pt_idxs_D1.append([idx_i])
+        for idx_j in range(len(pts_j)):
+            pc2.append(pts_j[idx_j])
+            kp_idxs_D2.append(k_idx)
+            pt_idxs_D2.append([idx_j])
+
+    pc1 = np.array(pc1)
+    pc2 = np.array(pc2)
+    A = np.array(A)
+    kp_idxs_D1 = np.array(kp_idxs_D1)
+    pt_idxs_D1 = np.array(pt_idxs_D1)
+    kp_idxs_D2 = np.array(kp_idxs_D2)
+    pt_idxs_D2 = np.array(pt_idxs_D2)
+
+    D1 = np.ascontiguousarray(
+        np.vstack(pc1).T,   # stack FIRST, then transpose
+        dtype=np.float64
+    )
+
+    D2 = np.ascontiguousarray(
+        np.vstack(pc2).T,
+        dtype=np.float64
+    )
+    A = np.ascontiguousarray(
+        np.array(A, dtype=np.int32)
+    )
+    # print("D", D1.shape, D2.shape)
+    # print("A", A.shape)
+    # exit()
     # ======================
     # Run CLIPPER
     # ======================
@@ -524,7 +638,6 @@ for path_idx in range(START_IDX, len(path_quer_all)):
     clipper = clipperpy.CLIPPER(invariant, params)
     t0 = time.perf_counter()
 
-    # Build consistency matrix
     clipper.score_pairwise_consistency(D1, D2, A)
 
     t1 = time.perf_counter()
@@ -558,11 +671,17 @@ for path_idx in range(START_IDX, len(path_quer_all)):
 
     pc_clustered_clipper = {}
     pc_clustered_clipper["cam2"] = PointCloudClustered(
+                                                            kvalid=pc_clustered["cam3"].kvalid,                # TODO: delete later
+                                                    pts_per_kp=pc_clustered["cam3"].pts_per_kp,        # TODO: delete later
+                                                    pxs_per_kp=pc_clustered["cam3"].pxs_per_kp,        # TODO: delete later
                                                     kidxs=idxs1,
                                                     pts=np.array(inlier_pts_cam2),
                                                     pxs=np.array(inlier_pxs_cam2)
                                                 )
     pc_clustered_clipper["cam3"] = PointCloudClustered(
+                                                            kvalid=pc_clustered["cam3"].kvalid,                # TODO: delete later
+                                                    pts_per_kp=pc_clustered["cam3"].pts_per_kp,        # TODO: delete later
+                                                    pxs_per_kp=pc_clustered["cam3"].pxs_per_kp,        # TODO: delete later
                                                     kidxs=idxs2,
                                                     pts=np.array(inlier_pts_cam3),
                                                     pxs=np.array(inlier_pxs_cam3)
@@ -573,84 +692,7 @@ for path_idx in range(START_IDX, len(path_quer_all)):
     # ======================
     # Get relative pose estimate
     # ======================
-    # if len(inlier_pts_cam2) > MIN_NUM_INLIERS:
-    #     inlier_pts_cam2 = np.array(inlier_pts_cam2)
-    #     inlier_pts_cam3 = np.array(inlier_pts_cam3)
-    #     inlier_pxs_cam2 = np.array(inlier_pxs_cam2)
-    #     inlier_pxs_cam3 = np.array(inlier_pxs_cam3)
 
-    #     cam_retr = cameras[0] # cam2
-    #     cam_quer = cameras[1] # cam3
-
-
-    #     # GT query camera pose in global frame
-    #     H_quer_global_true = get_gt_H(image_to_gt_path(cameras[1].image_path))
-    #     H_retr_global_true = get_gt_H(image_to_gt_path(cameras[0].image_path))
-
-    #     # Arun relative transform (retr→quer in cam3 frame)
-    #     R_retr2quer_arun, t_retr2quer_arun = arun(inlier_pts_cam2.T, inlier_pts_cam3.T)
-    #     # R_retr2quer_arun, t_retr2quer_arun = weighted_umeyama(inlier_pts_cam2.T, inlier_pts_cam3.T)
-    #     H_retr2quer_cam3_arun = build_homogeneous(R_retr2quer_arun, t_retr2quer_arun)
-    #     H_retr_global_pred_arun = H_quer_global_true @ H_retr2quer_cam3_arun
-    #     H_quer_global_pred_arun = invert_H(H_retr2quer_cam3_arun) @ H_retr_global_true
-
-    #     # PnP relative transform (retr→quer in cam3 frame?)
-    #     ret,R_retr2quer_pnp, t_retr2quer_pnp = cv2.solvePnP(inlier_pts_cam2, inlier_pxs_cam3, 
-    #                                                         cam_quer.K, 
-    #                                                         cam_quer.dist)        
-    #     H_retr2quer_cam3_pnp = build_homogeneous(R_retr2quer_pnp, t_retr2quer_pnp)
-    #     H_retr_global_pred_pnp = H_quer_global_true @ H_retr2quer_cam3_pnp
-    #     H_quer_global_pred_pnp = invert_H(H_retr2quer_cam3_pnp) @ H_retr_global_true
-
-    #     # Translation part
-    #     t_retr_global_true = H_retr_global_true[:3, 3]
-    #     t_retr_global_arun = H_retr_global_pred_arun[:3, 3]
-    #     t_retr_global_pnp = H_retr_global_pred_pnp[:3, 3]
-
-    #     t_quer_global_true = H_quer_global_true[:3, 3]
-    #     t_quer_global_arun = H_quer_global_pred_arun[:3, 3]
-    #     t_quer_global_pnp = H_quer_global_pred_pnp[:3, 3]
-
-    #     print("True retr trans gps: ", t_retr_global_true)
-    #     print("Pred retr trans aru: ", t_retr_global_arun)
-    #     print("Pred retr trans pnp: ", t_retr_global_pnp)
-
-    #     print("True quer trans gps: ", t_quer_global_true)
-    #     print("Pred quer trans aru: ", t_quer_global_arun)
-    #     print("Pred quer trans pnp: ", t_quer_global_pnp)
-
-    #     # Translational error
-    #     trans_err_aru = t_quer_global_arun - t_quer_global_true
-    #     trans_err_pnp = t_quer_global_pnp  - t_quer_global_true
-
-    #     print("\nArun translational error (m):", trans_err_aru)
-    #     print("PnP translational error  (m):", trans_err_pnp)
-
-    #     # Rotation part
-    #     R_retr_global_true = H_retr_global_true[:3, :3]
-    #     R_retr_global_arun = H_retr_global_pred_arun[:3, :3]
-    #     R_retr_global_pnp  = H_retr_global_pred_pnp[:3, :3]
-
-    #     R_quer_global_true = H_quer_global_true[:3, :3]
-    #     R_quer_global_arun = H_quer_global_pred_arun[:3, :3]
-    #     R_quer_global_pnp  = H_quer_global_pred_pnp[:3, :3]
-
-    #     rot_err_aru = rotation_components_deg(R_quer_global_arun, R_quer_global_true)
-    #     rot_err_pnp = rotation_components_deg(R_quer_global_pnp,  R_quer_global_true)
-
-    #     # For plotting
-    #     pred_cam3_gps_xy_aru.append(t_quer_global_arun[0:2])
-    #     pred_cam3_gps_xy_pnp.append(t_quer_global_pnp[0:2])
-
-    #     errors_aru.append({
-    #         "trans": trans_err_aru,
-    #         "rot":   rot_err_aru,
-    #     })
-
-    #     errors_pnp.append({
-    #         "trans": trans_err_pnp,
-    #         "rot":   rot_err_pnp,
-    #     })
     if len(inlier_pts_cam2) > MIN_NUM_INLIERS:
         inlier_pts_cam2 = np.asarray(inlier_pts_cam2)
         inlier_pts_cam3 = np.asarray(inlier_pts_cam3)

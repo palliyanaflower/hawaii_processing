@@ -49,6 +49,7 @@ def show_points_2d(
     figsize=(18, 8),
     kp_size=25,
     cmap="turbo",
+    title=""
 ):
 
     fig, axes = plt.subplots(
@@ -65,14 +66,14 @@ def show_points_2d(
     for ax, cam in zip(axes, cameras):
         ax.imshow(cam.img)
 
-        # Matched keypoints
-        ax.scatter(
-            keypoints[cam.name][:, 0],
-            keypoints[cam.name][:, 1],
-            s=kp_size,
-            c="red",
-            label="Matched keypoints",
-        )
+        # # Matched keypoints
+        # ax.scatter(
+        #     keypoints[cam.name][:, 0],
+        #     keypoints[cam.name][:, 1],
+        #     s=kp_size,
+        #     c="red",
+        #     label="Matched keypoints",
+        # )
 
         # Cluster centroids
         ax.scatter(
@@ -85,7 +86,7 @@ def show_points_2d(
             label="Cluster centroids",
         )
 
-        ax.set_title(f"{cam.name} – 2D projection")
+        ax.set_title(f"{cam.name} – 2D projection" + title)
         ax.axis("off")
 
     axes[0].legend(loc="lower right")
@@ -99,9 +100,10 @@ def show_points_3d(
     figsize=(18, 8),
     all_lidar_size=1,
     centroid_size=5,
-    cmap="turbo",
+    cmap="hsv",
     elev=20,
     azim=-70,
+    title=""
 ):
 
     all_kidxs = np.concatenate([
@@ -154,6 +156,7 @@ def show_points_3d(
         ax.set_zlabel("Z (m)")
         ax.view_init(elev=elev, azim=azim)
         ax.set_aspect("equal", adjustable="datalim")
+        ax.set_title(title)
 
     plt.tight_layout()
     return fig

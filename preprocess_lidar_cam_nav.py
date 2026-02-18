@@ -165,46 +165,56 @@ def process_bag_timesync_reference(
                 lidar_ds_i += 1
                 continue
             right_entry = right_camera_queue.get_closest(left_entry["t"], max_diff_ms=5)
-            rgb_entry = rgb_camera_queue.get_closest(ts, max_diff_ms=max_time_diff_ms)
+            rgb_entry = rgb_camera_queue.get_closest(ts, max_diff_ms=30)
             gps_entry = gps_queue.get_closest(ts, max_diff_ms=max_time_diff_ms)
             gt_entry = gt_queue.get_closest(ts, max_diff_ms=max_time_diff_ms)
 
-            if rgb_entry is None or right_entry is None or gps_entry is None or gt_entry is None:
+            # # View time diff
+            # best_dt = float("inf")
+            # for i, entry in enumerate(rgb_camera_queue.queue):
+            #     dt = abs(entry["t"] - ts) / 1e6
+            #     if dt < best_dt:
+            #         best_dt = dt
+            # print("rgb entry ms ", best_dt)
+
+            if rgb_entry is None or gt_entry is None or gps_entry is None:
                 lidar_ds_i += 1
                 continue
 
             # -------- deserialize --------
             rgb_msg = reader_cam.deserialize(rgb_entry["raw"], rgb_entry["msgtype"])
-            left_msg = reader_cam.deserialize(left_entry["raw"], left_entry["msgtype"])
-            right_msg = reader_cam.deserialize(right_entry["raw"], right_entry["msgtype"])
+            points_msg = deserialize_message(raw, PointCloud2)
             gps_msg = reader_nav.deserialize(gps_entry["raw"], gps_entry["msgtype"])
             gt_msg = reader_nav.deserialize(gt_entry["raw"], gt_entry["msgtype"])
+
+            # Optional
+            # left_msg = reader_cam.deserialize(left_entry["raw"], left_entry["msgtype"])
+            # right_msg = reader_cam.deserialize(right_entry["raw"], right_entry["msgtype"])
             # points_msg = reader_lidar.deserialize(raw, conn.msgtype)
-            points_msg = deserialize_message(raw, PointCloud2)
 
             # -------- save images --------
             cv2.imwrite(
                 str(output_dir / "camera/rgb" / f"{file_idx}.png"),
                 message_to_cvimage(rgb_msg),
             )
-            cv2.imwrite(
-                str(output_dir / "camera/left_cam" / f"{file_idx}.png"),
-                message_to_cvimage(left_msg),
-            )
-            cv2.imwrite(
-                str(output_dir / "camera/right_cam" / f"{file_idx}.png"),
-                message_to_cvimage(right_msg),
-            )
+            # cv2.imwrite(
+            #     str(output_dir / "camera/left_cam" / f"{file_idx}.png"),
+            #     message_to_cvimage(left_msg),
+            # )
+            # cv2.imwrite(
+            #     str(output_dir / "camera/right_cam" / f"{file_idx}.png"),
+            #     message_to_cvimage(right_msg),
+            # )
 
             matched_timestamps["camera/rgb"].append(
                 {"t": rgb_entry["t"], "file": f"{file_idx}.png"}
             )
-            matched_timestamps["camera/left_cam"].append(
-                {"t": left_entry["t"], "file": f"{file_idx}.png"}
-            )
-            matched_timestamps["camera/right_cam"].append(
-                {"t": right_entry["t"], "file": f"{file_idx}.png"}
-            )
+            # matched_timestamps["camera/left_cam"].append(
+            #     {"t": left_entry["t"], "file": f"{file_idx}.png"}
+            # )
+            # matched_timestamps["camera/right_cam"].append(
+            #     {"t": right_entry["t"], "file": f"{file_idx}.png"}
+            # )
 
             # -------- save GPS --------
             gps_data = {
@@ -330,8 +340,8 @@ from pathlib import Path
 import re
 
 NUM_DS_FRAMES = 30
-TIME_DIFF_MS = 150
-cam_num = 2
+TIME_DIFF_MS = 100
+cam_num = 3
 data_root = Path("data/makalii_point")
 
 cam_dir = data_root / f"cam{cam_num}"

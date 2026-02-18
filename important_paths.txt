@@ -1,0 +1,14 @@
+
+N=45: Wrong Retrieved, lots of matched keypoints
+Query
+data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_50/camera/rgb/11.png
+
+Retrieved
+/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_10/camera/rgb/8.png
+
+N=7: Structure Present 444 matched keypoints, scale change
+Query
+data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_40/camera/rgb/7.png
+
+Retrieved
+/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_18/camera/rgb/3.png

@@ -9,12 +9,18 @@
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_40/camera/rgb/6.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_40/camera/rgb/7.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_40/camera/rgb/8.png",
-    "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_40/camera/rgb/9.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_41/camera/rgb/0.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_41/camera/rgb/1.png",
+    "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_41/camera/rgb/10.png",
+    "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_41/camera/rgb/11.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_41/camera/rgb/2.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_41/camera/rgb/3.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_41/camera/rgb/4.png",
+    "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_41/camera/rgb/5.png",
+    "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_41/camera/rgb/6.png",
+    "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_41/camera/rgb/7.png",
+    "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_41/camera/rgb/8.png",
+    "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_41/camera/rgb/9.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_42/camera/rgb/0.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_42/camera/rgb/1.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_42/camera/rgb/2.png",
@@ -26,8 +32,6 @@
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_42/camera/rgb/8.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_43/camera/rgb/0.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_43/camera/rgb/1.png",
-    "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_43/camera/rgb/10.png",
-    "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_43/camera/rgb/11.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_43/camera/rgb/2.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_43/camera/rgb/3.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_43/camera/rgb/4.png",
@@ -50,7 +54,6 @@
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_46/camera/rgb/3.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_46/camera/rgb/4.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_46/camera/rgb/5.png",
-    "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_46/camera/rgb/6.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_47/camera/rgb/0.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_47/camera/rgb/1.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_47/camera/rgb/2.png",
@@ -61,7 +64,6 @@
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_47/camera/rgb/7.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_48/camera/rgb/0.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_48/camera/rgb/1.png",
-    "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_48/camera/rgb/10.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_48/camera/rgb/2.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_48/camera/rgb/3.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_48/camera/rgb/4.png",
@@ -69,27 +71,22 @@
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_48/camera/rgb/6.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_48/camera/rgb/7.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_48/camera/rgb/8.png",
-    "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_48/camera/rgb/9.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_49/camera/rgb/0.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_49/camera/rgb/1.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_49/camera/rgb/2.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_49/camera/rgb/3.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_49/camera/rgb/4.png",
-    "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_49/camera/rgb/5.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_50/camera/rgb/0.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_50/camera/rgb/1.png",
-    "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_50/camera/rgb/10.png",
-    "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_50/camera/rgb/11.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_50/camera/rgb/2.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_50/camera/rgb/3.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_50/camera/rgb/4.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_50/camera/rgb/5.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_50/camera/rgb/6.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_50/camera/rgb/7.png",
-    "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_50/camera/rgb/8.png",
-    "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_50/camera/rgb/9.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_51/camera/rgb/0.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_51/camera/rgb/1.png",
+    "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_51/camera/rgb/10.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_51/camera/rgb/2.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_51/camera/rgb/3.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_51/camera/rgb/4.png",
@@ -100,15 +97,12 @@
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_51/camera/rgb/9.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_52/camera/rgb/0.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_52/camera/rgb/1.png",
-    "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_52/camera/rgb/10.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_52/camera/rgb/2.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_52/camera/rgb/3.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_52/camera/rgb/4.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_52/camera/rgb/5.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_52/camera/rgb/6.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_52/camera/rgb/7.png",
-    "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_52/camera/rgb/8.png",
-    "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_52/camera/rgb/9.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_53/camera/rgb/0.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_53/camera/rgb/1.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_53/camera/rgb/2.png",
@@ -123,7 +117,8 @@
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_54/camera/rgb/1.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_54/camera/rgb/2.png",
     "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_54/camera/rgb/3.png",
-    "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_54/camera/rgb/4.png"
+    "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_54/camera/rgb/4.png",
+    "data/makalii_point/processed_lidar_cam_gps/cam3/bag_camera_3_2025_08_13-01_35_58_54/camera/rgb/5.png"
   ],
   "retrieved": [
     [
@@ -133,28 +128,34 @@
       "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_18/camera/rgb/7.png"
     ],
     [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_18/camera/rgb/6.png"
-    ],
-    [
       "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_18/camera/rgb/5.png"
     ],
     [
       "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_18/camera/rgb/4.png"
     ],
     [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_18/camera/rgb/3.png"
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_18/camera/rgb/4.png"
     ],
     [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_18/camera/rgb/3.png"
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_18/camera/rgb/6.png"
     ],
     [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_18/camera/rgb/3.png"
+      ""
+    ],
+    [
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_18/camera/rgb/2.png"
     ],
     [
       "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_18/camera/rgb/1.png"
     ],
     [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_18/camera/rgb/0.png"
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_17/camera/rgb/6.png"
+    ],
+    [
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_17/camera/rgb/6.png"
+    ],
+    [
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/3.png"
     ],
     [
       ""
@@ -187,37 +188,73 @@
       ""
     ],
     [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_17/camera/rgb/4.png"
+      ""
     ],
     [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_17/camera/rgb/3.png"
+      ""
+    ],
+    [
+      ""
+    ],
+    [
+      ""
+    ],
+    [
+      ""
+    ],
+    [
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_17/camera/rgb/5.png"
+    ],
+    [
+      ""
     ],
     [
       "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_17/camera/rgb/1.png"
     ],
     [
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/8.png"
+    ],
+    [
       "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_17/camera/rgb/0.png"
-    ],
-    [
-      ""
-    ],
-    [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/8.png"
-    ],
-    [
-      ""
-    ],
-    [
-      ""
-    ],
-    [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/8.png"
     ],
     [
       "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/7.png"
     ],
     [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/6.png"
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/5.png"
+    ],
+    [
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/4.png"
+    ],
+    [
+      ""
+    ],
+    [
+      ""
+    ],
+    [
+      ""
+    ],
+    [
+      ""
+    ],
+    [
+      ""
+    ],
+    [
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/2.png"
+    ],
+    [
+      ""
+    ],
+    [
+      ""
+    ],
+    [
+      ""
+    ],
+    [
+      ""
     ],
     [
       "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/5.png"
@@ -226,76 +263,43 @@
       ""
     ],
     [
-      ""
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_15/camera/rgb/4.png"
     ],
     [
-      ""
-    ],
-    [
-      ""
-    ],
-    [
-      ""
-    ],
-    [
-      ""
-    ],
-    [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/1.png"
-    ],
-    [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/1.png"
-    ],
-    [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/1.png"
-    ],
-    [
-      ""
-    ],
-    [
-      ""
-    ],
-    [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/0.png"
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_13/camera/rgb/4.png"
     ],
     [
       "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_14/camera/rgb/3.png"
     ],
     [
-      ""
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_14/camera/rgb/3.png"
     ],
     [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_14/camera/rgb/2.png"
-    ],
-    [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_14/camera/rgb/1.png"
-    ],
-    [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_14/camera/rgb/1.png"
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_14/camera/rgb/3.png"
     ],
     [
       "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_14/camera/rgb/0.png"
     ],
     [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_13/camera/rgb/5.png"
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_13/camera/rgb/4.png"
     ],
     [
       "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_13/camera/rgb/2.png"
     ],
     [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_13/camera/rgb/3.png"
-    ],
-    [
       "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_13/camera/rgb/2.png"
     ],
     [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_13/camera/rgb/5.png"
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_13/camera/rgb/1.png"
     ],
     [
-      ""
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_13/camera/rgb/4.png"
     ],
     [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_13/camera/rgb/5.png"
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_12/camera/rgb/2.png"
+    ],
+    [
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_12/camera/rgb/2.png"
     ],
     [
       "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_12/camera/rgb/3.png"
@@ -304,13 +308,10 @@
       "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_12/camera/rgb/3.png"
     ],
     [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_12/camera/rgb/2.png"
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_12/camera/rgb/1.png"
     ],
     [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_12/camera/rgb/2.png"
-    ],
-    [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_11/camera/rgb/4.png"
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_12/camera/rgb/1.png"
     ],
     [
       "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_12/camera/rgb/1.png"
@@ -319,127 +320,106 @@
       "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_12/camera/rgb/1.png"
     ],
     [
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_12/camera/rgb/1.png"
+    ],
+    [
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_11/camera/rgb/3.png"
+    ],
+    [
       "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_12/camera/rgb/2.png"
     ],
     [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_12/camera/rgb/0.png"
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_11/camera/rgb/3.png"
     ],
     [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_12/camera/rgb/0.png"
-    ],
-    [
-      ""
-    ],
-    [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_11/camera/rgb/4.png"
-    ],
-    [
-      ""
-    ],
-    [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_11/camera/rgb/4.png"
-    ],
-    [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_11/camera/rgb/4.png"
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_11/camera/rgb/3.png"
     ],
     [
       "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_11/camera/rgb/2.png"
     ],
     [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_11/camera/rgb/2.png"
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_10/camera/rgb/2.png"
     ],
     [
       "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_11/camera/rgb/0.png"
     ],
     [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_10/camera/rgb/6.png"
+      ""
     ],
     [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_10/camera/rgb/3.png"
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_10/camera/rgb/2.png"
     ],
     [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_10/camera/rgb/4.png"
-    ],
-    [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_9/camera/rgb/2.png"
-    ],
-    [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_10/camera/rgb/8.png"
-    ],
-    [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_10/camera/rgb/3.png"
-    ],
-    [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_10/camera/rgb/3.png"
-    ],
-    [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_10/camera/rgb/8.png"
-    ],
-    [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_10/camera/rgb/3.png"
-    ],
-    [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_9/camera/rgb/3.png"
-    ],
-    [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_9/camera/rgb/3.png"
-    ],
-    [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_9/camera/rgb/3.png"
-    ],
-    [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_9/camera/rgb/3.png"
-    ],
-    [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_10/camera/rgb/3.png"
-    ],
-    [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_10/camera/rgb/8.png"
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_10/camera/rgb/2.png"
     ],
     [
       ""
     ],
     [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_6/camera/rgb/3.png"
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_9/camera/rgb/3.png"
     ],
     [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_9/camera/rgb/0.png"
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_9/camera/rgb/6.png"
     ],
     [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_9/camera/rgb/0.png"
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_9/camera/rgb/5.png"
     ],
     [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_9/camera/rgb/0.png"
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_9/camera/rgb/3.png"
     ],
     [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_8/camera/rgb/1.png"
+      ""
     ],
     [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_8/camera/rgb/3.png"
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_10/camera/rgb/2.png"
     ],
     [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_8/camera/rgb/3.png"
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_9/camera/rgb/3.png"
     ],
     [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_8/camera/rgb/3.png"
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_9/camera/rgb/7.png"
     ],
     [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_8/camera/rgb/3.png"
-    ],
-    [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_11/camera/rgb/0.png"
-    ],
-    [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_8/camera/rgb/1.png"
-    ],
-    [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_8/camera/rgb/0.png"
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_8/camera/rgb/4.png"
     ],
     [
       ""
     ],
     [
       ""
+    ],
+    [
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_10/camera/rgb/1.png"
+    ],
+    [
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_9/camera/rgb/0.png"
+    ],
+    [
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_8/camera/rgb/6.png"
+    ],
+    [
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_8/camera/rgb/4.png"
+    ],
+    [
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_8/camera/rgb/4.png"
+    ],
+    [
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_8/camera/rgb/4.png"
+    ],
+    [
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_8/camera/rgb/3.png"
+    ],
+    [
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_8/camera/rgb/2.png"
+    ],
+    [
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_8/camera/rgb/3.png"
+    ],
+    [
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_8/camera/rgb/2.png"
+    ],
+    [
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_7/camera/rgb/3.png"
     ],
     [
       ""
@@ -463,25 +443,25 @@
       "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_6/camera/rgb/3.png"
     ],
     [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_6/camera/rgb/4.png"
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_6/camera/rgb/3.png"
     ],
     [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_6/camera/rgb/4.png"
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_6/camera/rgb/3.png"
+    ],
+    [
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_6/camera/rgb/3.png"
+    ],
+    [
+      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_6/camera/rgb/3.png"
     ],
     [
       ""
     ],
     [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_6/camera/rgb/3.png"
+      ""
     ],
     [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_6/camera/rgb/3.png"
-    ],
-    [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_6/camera/rgb/3.png"
-    ],
-    [
-      "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_6/camera/rgb/3.png"
+      ""
     ],
     [
       ""
@@ -502,7 +482,7 @@
   "true": [
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_18/camera/rgb/7.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_18/camera/rgb/7.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_18/camera/rgb/6.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_18/camera/rgb/5.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_18/camera/rgb/4.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_18/camera/rgb/4.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_18/camera/rgb/3.png",
@@ -513,116 +493,111 @@
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_17/camera/rgb/6.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_17/camera/rgb/5.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_17/camera/rgb/5.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_17/camera/rgb/6.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_17/camera/rgb/6.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_17/camera/rgb/6.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_17/camera/rgb/5.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_17/camera/rgb/5.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_17/camera/rgb/5.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_17/camera/rgb/5.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_17/camera/rgb/5.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_17/camera/rgb/5.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_17/camera/rgb/5.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_17/camera/rgb/5.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_17/camera/rgb/5.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_17/camera/rgb/5.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_17/camera/rgb/5.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_17/camera/rgb/4.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_17/camera/rgb/4.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_17/camera/rgb/4.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_17/camera/rgb/4.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_17/camera/rgb/4.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_17/camera/rgb/4.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_17/camera/rgb/4.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_17/camera/rgb/3.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_17/camera/rgb/0.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/10.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/10.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/8.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/3.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/3.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/7.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/6.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/6.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/4.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/4.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/4.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/4.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/4.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/5.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/3.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/3.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/3.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/3.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/2.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/2.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/2.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/2.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/1.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/1.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/0.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/0.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/0.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_16/camera/rgb/0.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_15/camera/rgb/4.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_14/camera/rgb/4.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_14/camera/rgb/3.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_14/camera/rgb/3.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_14/camera/rgb/2.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_14/camera/rgb/1.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_14/camera/rgb/1.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_14/camera/rgb/0.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_13/camera/rgb/4.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_13/camera/rgb/3.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_14/camera/rgb/0.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_13/camera/rgb/2.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_13/camera/rgb/0.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_13/camera/rgb/0.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_13/camera/rgb/0.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_12/camera/rgb/5.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_12/camera/rgb/5.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_13/camera/rgb/1.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_13/camera/rgb/1.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_12/camera/rgb/4.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_12/camera/rgb/4.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_12/camera/rgb/4.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_12/camera/rgb/4.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_12/camera/rgb/2.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_12/camera/rgb/1.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_11/camera/rgb/4.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_12/camera/rgb/1.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_12/camera/rgb/1.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_12/camera/rgb/1.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_12/camera/rgb/0.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_11/camera/rgb/5.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_11/camera/rgb/5.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_11/camera/rgb/5.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_11/camera/rgb/4.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_11/camera/rgb/4.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_11/camera/rgb/6.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_11/camera/rgb/6.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_11/camera/rgb/3.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_11/camera/rgb/2.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_11/camera/rgb/3.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_11/camera/rgb/3.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_11/camera/rgb/1.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_11/camera/rgb/1.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_11/camera/rgb/0.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_11/camera/rgb/0.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_10/camera/rgb/6.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_10/camera/rgb/3.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_10/camera/rgb/3.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_9/camera/rgb/2.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_9/camera/rgb/2.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_10/camera/rgb/2.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_10/camera/rgb/2.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_10/camera/rgb/1.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_9/camera/rgb/8.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_9/camera/rgb/8.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_9/camera/rgb/7.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_9/camera/rgb/5.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_9/camera/rgb/4.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_9/camera/rgb/4.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_9/camera/rgb/3.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_9/camera/rgb/3.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_9/camera/rgb/3.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_9/camera/rgb/2.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_9/camera/rgb/1.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_8/camera/rgb/4.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_9/camera/rgb/1.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_9/camera/rgb/1.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_9/camera/rgb/1.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_9/camera/rgb/0.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_9/camera/rgb/0.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_9/camera/rgb/0.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_8/camera/rgb/6.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_8/camera/rgb/5.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_8/camera/rgb/4.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_8/camera/rgb/4.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_8/camera/rgb/3.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_8/camera/rgb/3.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_8/camera/rgb/3.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_8/camera/rgb/3.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_6/camera/rgb/7.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_8/camera/rgb/1.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_8/camera/rgb/2.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_8/camera/rgb/0.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_7/camera/rgb/3.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_7/camera/rgb/3.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_7/camera/rgb/2.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_7/camera/rgb/2.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_7/camera/rgb/1.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_7/camera/rgb/0.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_6/camera/rgb/7.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_6/camera/rgb/6.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_6/camera/rgb/5.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_6/camera/rgb/5.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_6/camera/rgb/4.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_6/camera/rgb/4.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_6/camera/rgb/4.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_6/camera/rgb/3.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_6/camera/rgb/3.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_6/camera/rgb/3.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_6/camera/rgb/2.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_6/camera/rgb/2.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_6/camera/rgb/0.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_6/camera/rgb/0.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_6/camera/rgb/2.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_5/camera/rgb/5.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_5/camera/rgb/4.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_5/camera/rgb/3.png",
-    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_5/camera/rgb/3.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_5/camera/rgb/0.png",
+    "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_5/camera/rgb/0.png",
     "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/data/makalii_point/processed_lidar_cam_gps/cam2/bag_camera_2_2025_08_13-01_35_58_5/camera/rgb/0.png"
   ]
 }

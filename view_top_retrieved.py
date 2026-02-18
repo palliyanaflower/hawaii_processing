@@ -26,7 +26,7 @@ CAM3_ROOT = Path("data/makalii_point/processed_lidar_cam_gps/cam3")
 DB_FILE = Path("megaloc/results/megaloc_db_lcn_cam2.npz")
 
 TOP_K = 5       # number MegaLoc guesses
-THRESH = 1.0    # neighbor distance for accepting match
+THRESH = 0.8    # neighbor distance for accepting match
 MIN_NUM_MATCHES = 100
 
 # =========================

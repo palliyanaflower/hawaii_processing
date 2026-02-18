@@ -26,7 +26,10 @@ class CameraView:
     pts_infront: np.ndarray = None          # 3d lidar points in cam frame in front of cam
     pts_colors_infront: np.ndarray = None
 
+    
     def load_image_and_calib(self):
+        print("\ncam path", self.image_path)
+        
         img = cv2.imread(str(self.image_path))
         h, w, _ = img.shape
 
