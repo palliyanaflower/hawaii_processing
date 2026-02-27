@@ -9,7 +9,7 @@ import cv2
 # View topics: ros2 bag info cammerged_data/bag_cammerged_2025_08_14-00_56_41_10/bag_camera_2_2025_08_14-00_56_40_10.db3
 # bag_path = "/home/kalliyanlay/Documents/BYU/research/hawaii_processing/bag_camera_" + str(cam_num) +"_2025_08_14-00_56_40_30.db3"
 cam_num = 2 # 2 is left, 3 is right, 1 is front
-bag_path = "data/makalii_point/cam2/bag_camera_2_2025_08_13-01_35_58_16/bag_camera_2_2025_08_13-01_35_58_16.db3"
+bag_path = "data/makalii_point/cam2/bag_camera_2_2025_08_13-01_35_58_29.db3"
 # cam_num = "left" # 2 is left, 3 is right, 1 is front
 # bag_path = "/home/kalliyanlay/Documents/BYU/research/camera_lidar_calibration/data/hawaii_calib/cam3/bag_camera_3_2025_08_08-20_59_48_0/bag_camera_3_2025_08_08-20_59_48_0.db3"
 # bag_path = "/home/kalliyanlay/Documents/BYU/research/camera_lidar_calibration/data/cb_4thfloor_calib_10_13_25_new"

@@ -66,13 +66,16 @@ def move_db3_files(bag_files, source_dir, output_root):
 if __name__ == "__main__":
 
     source_dir = "."   # folder where db3 files currently live
-    output_root = "data/makalii_point/cam2"
-    original_metadata = "data/makalii_point/cam2/metadata.yaml"
+    output_root = "data/makalii_point/lidar"
+    original_metadata = "data/makalii_point/lidar/metadata.yaml"
 
-    subset_files = [
-        "bag_camera_2_2025_08_13-01_35_58_16.db3"
+    subset_files = []
+    for i in range(19, 40):
+        subset_files.append(f"bag_lidar_2025_08_13-01_35_58_{i}.db3")
+    # subset_files = [
 
-    ]
+    #     "bag_camera_3_2025_08_13-01_35_58_39.db3"
+    # ]
 
     create_yaml_for_each_bag(original_metadata, subset_files, output_root)
 
